@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="BeanFlick">
 	<head>
 		<meta charset="utf-8">
 		<title>@model.title</title>
@@ -7,6 +7,8 @@
 	</head>
 	<body>		
 		@html.block('content')
+
+        @vash.helpers.include(canvas, model)
 
 		<footer>
 			@html.block('footer')	
