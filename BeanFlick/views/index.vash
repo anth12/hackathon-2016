@@ -8,14 +8,9 @@
                 <div class="modal">
 
                     <h1>Welcome <b>{{ currentUser.Name }}</b></h1>
-                    <div ng-controller="PopularController">
-                        <ul>
-                            <li ng-repeat="game in popularGames">
-                                {{ game.Name }}
-                                <img src="{{ game.PreviewImage }}" alt="{{ game.Name }}" />
-                            </li>
-                        </ul>
-                    </div>
+                    
+                    @html.include('configuration/popular')
+
                 </div>
             </div>
         </div>
@@ -24,4 +19,8 @@
 
     })
 
+    @html.block('scripts', function(model){
+        
+        @html.include('game/scripts')
+    })
 })

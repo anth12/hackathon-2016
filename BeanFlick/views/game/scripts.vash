@@ -1,0 +1,25 @@
+﻿<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="/scripts/utilities/q.js"></script>
+
+<script src="/scripts/App.js"></script>
+
+<script src="/scripts/services/GameDataService.js"></script>
+<script src="/scripts/services/UserDataService.js"></script>
+
+<script src="/scripts/services/ImageService.js"></script>
+<script src="/scripts/services/CalculatorService.js"></script>
+<script src="/scripts/services/DrawService.js"></script>
+
+<script src="/scripts/factories/CanvasFactory.js"></script>
+<script src="/scripts/factories/InteractionFactory.js"></script>
+<script src="/scripts/factories/ImageFactory.js"></script>
+
+<script src="/scripts/controllers/PageController.js"></script>
+<script src="/scripts/controllers/GameController.js"></script>
+
+<script src="/scripts/controllers/configuration/ConfigurationController.js"></script>
+<script src="/scripts/controllers/configuration/PopularController.js"></script>

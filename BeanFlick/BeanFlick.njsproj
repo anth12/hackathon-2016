@@ -68,8 +68,10 @@
     <Content Include="public\styles\_mixins.scss" />
     <Content Include="public\styles\_variables.scss" />
     <Content Include="README.md" />
+    <Content Include="views\configuration\popular.vash" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
+    <Content Include="views\game\scripts.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
   </ItemGroup>
@@ -93,6 +95,8 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\configuration\" />
+    <Folder Include="views\game\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -4,21 +4,13 @@
             
         <h2>Error: @model.channel</h2>
 
-        <table class="table table-bordered">
-            @if(model.buffer != null){
-                @model.buffer.forEach(function(msg){
-                    <tr>
-                        <td>
-                            @msg.nick
-                        </td>
-                        <td>
-                            <small class="timestamp">@msg.date</small>
-                            @msg.args[1]                        
-                        </td>
-                    </tr>
-                })
-            }
-        </table>
+        <p style="color: black">
+            @model.message
+        </p>
+
+        <p style="color: black">
+            @model.error
+        </p>
 
     })
 
