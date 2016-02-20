@@ -1,18 +1,18 @@
 ﻿App.service('DrawService', ['CanvasFactory', function (CanvasFactory) {
         
-        var animationLoop;    
+    var animationLoop;    
 
-        this.draw = function () {
-            startAnimation()
-        }
+    this.draw = function () {
+        startAnimation()
+    }
         
         
-        this.clear = function () {
+    this.clear = function () {
 
-        }
+    }
         
-        function startAnimation() {
-            animationLoop = window.requestAnimationFrame(startAnimation)
-        }
+    function startAnimation() {
+        animationLoop = window.requestAnimationFrame(startAnimation)
+    }
 
-    }])
+}])
