@@ -20,22 +20,27 @@
             interval = setInterval(function () {
                 
                 
-                CalculatorService.friction();
-
-                InteractionFactory.movementData.speedX -= GlobalSettingsService.globalSettings().friction;
-
-                if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
-                    InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
-                } else {
-                    clearInterval(interval);
-                    deferred.resolve(true);
-                }
+                var needToStop = CalculatorService.friction();
                 
-                if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 && InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft < CanvasFactory.offsetLeft + CanvasFactory.width) {
-                    InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
-                } else {
+                if (needToStop) {
                     clearInterval(interval);
-                    deferred.resolve(true);
+                    GlobalSettingsService.restartGame();
+                } else {
+                    
+                    if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
+                        InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
+                    } else {
+                        clearInterval(interval);
+                        deferred.resolve(true);
+                    }
+                    
+                    if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 && InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft < CanvasFactory.offsetLeft + CanvasFactory.width) {
+                        InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
+                    } else {
+                        clearInterval(interval);
+                        deferred.resolve(true);
+                    }
+
                 }
 
             })

@@ -1,6 +1,36 @@
-﻿App.service('CalculatorService', ['InteractionFactory', function (InteractionFactory) {
+﻿App.service('CalculatorService', ['InteractionFactory', 'GlobalSettingsService', function (InteractionFactory, GlobalSettingsService) {
         
         this.friction = function () {
+            var speedY = InteractionFactory.movementData.speedY;
+            var speedX = InteractionFactory.movementData.speedX;
+            var friction = GlobalSettingsService.globalSettings().friction;
+            var needToStop = false;
+            
+            if (speedY > 0 && speedY - friction > 0) {
+                InteractionFactory.movementData.speedY -= friction;
+            } else {
+                needToStop = true;
+            }
+            
+            if (speedY < 0 && speedY + friction < 0) {
+                InteractionFactory.movementData.speedY += friction;
+            } else {
+                needToStop = true;
+            }
+            
+            if (speedX > 0 && speedX - friction > 0) {
+                InteractionFactory.movementData.speedX -= friction;
+            } else {
+                needToStop = true;
+            }
+            
+            if (speedX < 0 && speedX + friction < 0) {
+                InteractionFactory.movementData.speedX += friction;
+            } else {
+                needToStop = true;
+            }
+
+            return needToStop;
 
         }
         

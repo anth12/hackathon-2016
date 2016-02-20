@@ -1,0 +1,1 @@
+App.service("GameService",["ImageService","ImageFactory","DrawService",function(e,a,t){this.startGame=function(){var r=e.getImage("throwableOne","throwable");r.then(function(e){a[e.type]=e,t.draw(e)})}}]);

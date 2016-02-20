@@ -1,15 +1,11 @@
-﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', 'CanvasFactory', 'InteractionFactory', 'ImageFactory',
-    function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory) {
+﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', 'CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GameService',
+    function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory, GameService) {
         
         $scope.dragAllowed = false;
         $scope.interactionAllowed = true;
         
-        $scope.image = ImageService.getImage("throwableOne", "throwable");
-        $scope.image.then(function (image) {
-            ImageFactory[image.type] = image;
-            DrawService.draw(image)
-        })
-        
+        GameService.startGame();
+
         $scope.downInteraction = function ($event) {
             
             if ($event.pageX < InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft 

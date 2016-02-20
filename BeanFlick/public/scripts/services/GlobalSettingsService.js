@@ -1,5 +1,7 @@
-﻿App.service('GlobalSettingsService',  function () {
-        
+﻿App.service('GlobalSettingsService', function () {
+    
+
+
     this.throwableSettings = function () {
 
     }
