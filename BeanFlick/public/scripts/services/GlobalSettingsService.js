@@ -16,7 +16,7 @@
                 x: 400,
                 y: 600
             },
-            friction: 10
+            friction: 1
         }
     }
 

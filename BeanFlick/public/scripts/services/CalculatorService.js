@@ -6,30 +6,37 @@
             var friction = GlobalSettingsService.globalSettings().friction;
             var needToStop = false;
             
-            if (speedY > 0 && speedY - friction > 0) {
-                InteractionFactory.movementData.speedY -= friction;
-            } else {
-                needToStop = true;
+            if (speedY > 0) {
+                if (speedY - friction > 0) {
+                    InteractionFactory.movementData.speedY -= friction;
+                } else {
+                    needToStop = true;
+                }
             }
             
-            if (speedY < 0 && speedY + friction < 0) {
-                InteractionFactory.movementData.speedY += friction;
-            } else {
-                needToStop = true;
+            if (speedY < 0) {
+                if (speedY + friction < 0) {
+                    InteractionFactory.movementData.speedY += friction;
+                } else {
+                    needToStop = true;
+                }
             }
             
-            if (speedX > 0 && speedX - friction > 0) {
-                InteractionFactory.movementData.speedX -= friction;
-            } else {
-                needToStop = true;
+            if (speedX > 0) {
+                if (speedX - friction > 0) {
+                    InteractionFactory.movementData.speedX -= friction;
+                } else {
+                    needToStop = true;
+                }
+            }
+            if (speedX < 0) {
+                if (speedX + friction < 0) {
+                    InteractionFactory.movementData.speedX += friction;
+                } else {
+                    needToStop = true;
+                }
             }
             
-            if (speedX < 0 && speedX + friction < 0) {
-                InteractionFactory.movementData.speedX += friction;
-            } else {
-                needToStop = true;
-            }
-
             return needToStop;
 
         }

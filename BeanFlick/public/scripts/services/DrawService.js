@@ -1,5 +1,5 @@
-﻿App.service('DrawService', ['CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GlobalSettingsService', 'CalculatorService', '$q',
-    function (CanvasFactory, InteractionFactory, ImageFactory, GlobalSettingsService, CalculatorService, $q) {
+﻿App.service('DrawService', ['$q', 'CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GlobalSettingsService', 'CalculatorService',
+    function ($q, CanvasFactory, InteractionFactory, ImageFactory, GlobalSettingsService, CalculatorService) {
         
         var animationLoop;
         var interval;
@@ -24,7 +24,7 @@
                 
                 if (needToStop) {
                     clearInterval(interval);
-                    GlobalSettingsService.restartGame();
+                    deferred.resolve(true);
                 } else {
                     
                     if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
