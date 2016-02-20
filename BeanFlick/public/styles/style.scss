@@ -48,15 +48,45 @@ body {
     color: $baseFont;    
 }
 
-// content 
+// main content 
 .main-content {
     background-color: $primaryColour;
+    .logo {
+        width: 200px;
+        float: left;
+    }
+    h1 {
+        float: right;
+    }
 }
 
+.main-content {
+    .target {
+        margin-top: 50px;
+    }
+}
+// sidebar content
 .sidebar-content {
     background-color: $tertiaryColour;
+    .highscores {
+        thead { 
+            background-color: $altColour; 
+        }
+    }
+    .updates {
+        thead {
+            background-color: $altColour;
+        }
+    }
+    img {
+        width: 90px;
+    }
 }
 
+// footer content
 .footer {
+    height: 150px;
     background-color: $secondaryColour;
 }
+
+// modal content
