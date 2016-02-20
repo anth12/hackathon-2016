@@ -1,1 +1,7 @@
-﻿@import "test";
+@import "variables";
+@import "layout";
+
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: $primaryColour;
+}
