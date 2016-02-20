@@ -1,0 +1,1 @@
+App.controller("PageController",function(r,e){null==e.currentUser&&e.getCurrentUser().then(function(e){r.currentUser=e,r.$apply()})});
