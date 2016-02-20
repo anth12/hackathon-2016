@@ -2,9 +2,17 @@
 
     @html.block('content', function(model){
             
-        <h2>@model.title</h2>
+        <div ng-if="currentGame == null">
 
-        
+            <div class="modal-background" ng-controller="ConfigurationController">
+                <div class="modal">
+
+                    <h1>Welcome <b>{{ currentUser.Name }}</b></h1>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="1000" height="1000" style="border: 1px solid black;"></canvas>
 
     })
 

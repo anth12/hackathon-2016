@@ -6,13 +6,25 @@ var gameService = {
     
     //#region Query
     
+    getPopular: function (id) {
+        
+        return new Promise(function (resolve, reject) {
+            
+            gameDataStore.find({ UserDefined: false /* TODO, extend*/ }, function (err, docs) {
+                
+                resolve(docs);
+            });
+
+        });
+    },
+
     get: function(id) {
 
         return new Promise(function (resolve, reject) {
 
-            userDataStore.find({ Id: id }, function(err, docs) {
+            gameDataStore.find({ Id: id }, function(err, docs) {
 
-                resolve(docs);
+                resolve(docs[0]);
             });
 
         });

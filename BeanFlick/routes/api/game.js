@@ -1,6 +1,15 @@
 ﻿var express = require('express');
 var router = express.Router();
-var userService = require('../../Services/UserService');
+var gameService = require('../../Services/GameService');
+
+/* GET */
+router.get('/popular', function (req, res) {
+    
+    userService.getPopular().then(function (games) {
+        
+        res.send(games);
+    });
+});
 
 /* GET */
 router.get('/*', function (req, res) {

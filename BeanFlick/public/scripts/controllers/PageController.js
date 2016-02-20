@@ -1,13 +1,15 @@
-﻿App.controller('PageController', function ($scope, UserService) {
+﻿App.controller('PageController', function ($scope, UserDataService) {
+    
+    $scope.currentGame = null;
+    
+    // Ensure a valid user is found
+    if (UserDataService.currentUser == null) {
         
-        // Ensure a valid user is found
-        if (UserService.currentUser == null) {
+        UserDataService.getCurrentUser().then(function (user) {
             
-            UserService.getCurrentUser().then(function (user) {
-                
-                $scope.currentUser = user;
-                $scope.$apply();
-            });
-        }
+            $scope.currentUser = user;
+            $scope.$apply();
+        });
+    }
         
-    });
+});

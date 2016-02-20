@@ -1,6 +1,12 @@
 @import "variables";
 @import "mixins";
 
+/*
+    Modules
+*/
+
+@import 'modules/_configuration';
+
 // grid layout 
 *, *:after, *:before {
     margin: 0;
@@ -58,9 +64,7 @@ body {
     h1 {
         float: right;
     }
-}
 
-.main-content {
     .target {
         margin-top: 50px;
     }

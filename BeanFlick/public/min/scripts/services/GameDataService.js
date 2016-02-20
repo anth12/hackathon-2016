@@ -1,0 +1,1 @@
+App.service("GameDataService",function(e){var r={currentUser:null,getPopular:function(){var r=Q.defer();return e.post("/api/game/popular").then(function(e){r.resolve(e.data)}),r.promise},get:function(r){var t=Q.defer();return e.post("/api/game/"+r).then(function(e){t.resolve(e.data)}),t.promise}};return r});

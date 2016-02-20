@@ -20,9 +20,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
 /*********************************************************
+ *** DataStore Config ************************************
+ *********************************************************/
+require('./DataStoreConfig')(app);
+
+/*********************************************************
  *** Register the Routes *********************************
  *********************************************************/
-require('../App_Start/RouteConfig')(app);
+require('./RouteConfig')(app);
 
 
 
