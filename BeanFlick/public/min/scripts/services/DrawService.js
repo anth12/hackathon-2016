@@ -1,0 +1,1 @@
+App.service("DrawService",["CanvasFactory",function(n){this.draw=function(){console.log(n.canvasElement)},this.clear=function(){}}]);

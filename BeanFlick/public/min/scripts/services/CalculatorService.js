@@ -1,1 +1,1 @@
-App.service("CalculatorService",function(){this.movementData=function(e,t){e.y-t.y,t.x-e.x}});
+App.service("CalculatorService",function(){this.movementData=function(t,e){var a=t.y-e.y,i=e.x-t.x,n=e.time-t.time,c=n/1e3;return{clickLength:n,distanceX:i,distanceY:a,distanceXY:Math.sqrt(Math.pow(i,2)+Math.pow(a,2)),speedX:i/c,speedY:a/c,speedXY:Math.sqrt(Math.pow(i,2)+Math.pow(a,2))/c,raidanDirection:Math.atan2(a,-i),degreeDirection:180*Math.atan2(a,-i)/Math.PI}}});

@@ -8,7 +8,7 @@ var minifycss = require('gulp-minify-css');
 var sass = require('gulp-sass');
 
 gulp.task('styles', function(){
-  gulp.src(['public/styles/**/*.scss'])
+  gulp.src(['public/styles/style.scss'])
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);

@@ -3,7 +3,7 @@
 App.service('ImageService', function () {
     
     var imagePaths = {
-        launcherOne: "images/launcherOne.png",
+        launcherOne: "/images/launcherOne.png",
         launcherTwo: "/images/launcherTwo.png",
         launcherThree: "/images/launcherThree.png",
         launcherFour: "/images/launcherFour.png",
@@ -13,9 +13,6 @@ App.service('ImageService', function () {
         throwableThree: "/images/throwableThree.png",
         throwableFour: "/images/throwableFour.png"
     }
-    
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext("2d");
     
     this.getImage = function ($imageName) {
         var image = new Image();
