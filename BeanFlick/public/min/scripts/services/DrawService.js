@@ -1,1 +1,1 @@
-App.service("DrawService",["CanvasFactory",function(n){this.draw=function(){console.log(n.canvasElement)},this.clear=function(){}}]);
+App.service("DrawService",["CanvasFactory",function(n){function i(){a=window.requestAnimationFrame(i)}var a;this.draw=function(){i()},this.clear=function(){}}]);

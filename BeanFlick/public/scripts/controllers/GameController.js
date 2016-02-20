@@ -1,4 +1,4 @@
-﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', function ($scope, ImageService, CalculatorService, DrawService) {
+﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', 'CanvasFactory', function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory) {
         
 
         $scope.downInteraction = function ($event) {
@@ -10,16 +10,16 @@
             
 
             $scope.downData = {
-                x: $event.pageX - $scope.canvas.offsetLeft,
-                y: $event.pageY - $scope.canvas.offsetTop,
+                x: $event.pageX - CanvasFactory.canvasElement.offsetLeft,
+                y: $event.pageY - CanvasFactory.canvasElement.offsetTop,
                 time: Date.now()
             }
         };
 
         $scope.upInteraction = function ($event) {
             $scope.upData = {
-                x: $event.pageX - $scope.canvas.offsetLeft,
-                y: $event.pageY - $scope.canvas.offsetTop,
+                x: $event.pageX - CanvasFactory.canvasElement.offsetLeft,
+                y: $event.pageY - CanvasFactory.canvasElement.offsetTop,
                 time: Date.now()
             }
 
