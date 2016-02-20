@@ -1,1 +1,1 @@
-App.controller("PopularController",function(o,e){o.popularGames=[{Name:"test"}],e.getPopular().then(function(e){o.popularGames=e})});
+App.controller("PopularController",function(o,l){l.getPopular().then(function(l){o.popularGames=l})});

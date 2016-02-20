@@ -1,1 +1,1 @@
-App.controller("PageController",function(r,e){r.currentGame={},null==e.currentUser&&e.getCurrentUser().then(function(e){r.currentUser=e})});
+App.controller("PageController",function(r,e){r.currentGame=null,null==e.currentUser&&e.getCurrentUser().then(function(e){r.currentUser=e})});

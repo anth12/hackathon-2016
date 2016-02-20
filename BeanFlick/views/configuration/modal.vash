@@ -1,0 +1,24 @@
+﻿<div class="modal-background" ng-controller="ConfigurationController">
+    <div class="wrapper modal">
+
+        <div class="row">
+            <div class="title column-8">Pick your character</div>
+            <div class="beans-flicked column-4">2.4M Beans Flicked</div>
+        </div>
+
+        <h1>Welcome <b>{{ currentUser.Name }}</b></h1>
+
+        @html.include('configuration/popular')
+        
+        <div class="row">
+            <div class="search column-8">
+                <h1> Search </h1>
+            </div>
+            <div class="upload column-4">
+                <h1> Upload </h1>
+                <h1> Take Photo </h1>
+            </div>
+        </div>
+
+    </div>
+</div>

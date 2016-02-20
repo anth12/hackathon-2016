@@ -10,6 +10,7 @@
 <script src="/scripts/services/GameDataService.js"></script>
 <script src="/scripts/services/UserDataService.js"></script>
 
+<script src="/scripts/services/GlobalSettingsService.js"></script>
 <script src="/scripts/services/ImageService.js"></script>
 <script src="/scripts/services/CalculatorService.js"></script>
 <script src="/scripts/services/DrawService.js"></script>

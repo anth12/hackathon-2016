@@ -68,6 +68,7 @@
     <Content Include="public\styles\_mixins.scss" />
     <Content Include="public\styles\_variables.scss" />
     <Content Include="README.md" />
+    <Content Include="views\configuration\modal.vash" />
     <Content Include="views\configuration\popular.vash" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
