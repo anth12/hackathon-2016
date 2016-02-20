@@ -30,7 +30,11 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app.js" />
+    <Compile Include="App_Start\ApplicationStart.js" />
+    <Compile Include="App_Start\RouteConfig.js" />
+    <Compile Include="App_Start\SocketConfig.js" />
+    <Compile Include="gulpfile.js" />
+    <Compile Include="public\test.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
@@ -43,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="App_Start\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
