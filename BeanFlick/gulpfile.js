@@ -8,7 +8,7 @@ var minifycss = require('gulp-minify-css');
 var sass = require('gulp-sass');
 
 gulp.task('styles', function(){
-  gulp.src(['BeanFlick/public/style/**/*.scss'])
+  gulp.src(['public/styles/**/*.scss'])
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);
@@ -16,25 +16,25 @@ gulp.task('styles', function(){
     }}))
     .pipe(sass())
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(gulp.dest('BeanFlick/public/min/style/'))
+    .pipe(gulp.dest('public/min/styles/'))
     .pipe(minifycss())
-    .pipe(gulp.dest('BeanFlick/public/min/style/'))
+    .pipe(gulp.dest('public/min/styles/'))
 });
 
 gulp.task('scripts', function(){
-  return gulp.src('BeanFlick/public/script/**/*.js')
+  return gulp.src('public/scripts/**/*.js')
     .pipe(plumber({
       errorHandler: function (error) {
         console.log(error.message);
         this.emit('end');
     }}))
     .pipe(babel())
-    .pipe(gulp.dest('BeanFlick/public/min/script/'))
+    .pipe(gulp.dest('public/min/scripts/'))
     .pipe(uglify())
-    .pipe(gulp.dest('BeanFlick/public/min/script/'))
+    .pipe(gulp.dest('public/min/scripts/'))
 });
 
-gulp.task('default', function(){
-  gulp.watch("BeanFlick/public/style/**/*.scss", ['styles']);
-  gulp.watch("BeanFlick/public/script/**/*.js", ['scripts']);
+gulp.task('default', ['styles', 'scripts'], function (){
+  gulp.watch("public/styles/**/*.scss", ['styles']);
+  gulp.watch("public/scripts/**/*.js", ['scripts']);
 });

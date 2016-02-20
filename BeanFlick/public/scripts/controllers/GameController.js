@@ -1,12 +1,12 @@
-﻿App.controller('GameController', ['$scope', function ($scope, ImageService) {
+﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', function ($scope, ImageService, CalculatorService) {
         
         $scope.image = ImageService.getImage("throwableOne");
-        
-        ImageService.clear();
-            
+        $scope.image.then(function (image) {
+                
+        })
 
         $scope.downInteraction = function ($event) {
-
+            
         };
 
         $scope.upInteraction = function ($event) {

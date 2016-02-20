@@ -1,0 +1,1 @@
+App.controller("GameController",["$scope","ImageService","CalculatorService",function(e,n,o){e.image=n.getImage("throwableOne"),e.image.then(function(e){}),e.downInteraction=function(e){},e.upInteraction=function(e){}}]);

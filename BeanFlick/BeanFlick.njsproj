@@ -30,20 +30,21 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-
     <Compile Include="app.js" />
-    <Compile Include="public\scripts\App.js" />
-    <Compile Include="public\scripts\controllers\CanvasInteractionController.js" />
-    <Compile Include="public\scripts\controllers\PageController.js" />
     <Compile Include="App_Start\ApplicationStart.js" />
     <Compile Include="App_Start\RouteConfig.js" />
     <Compile Include="App_Start\SocketConfig.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="public\scripts\App.js" />
+    <Compile Include="public\scripts\controllers\GameController.js" />
+    <Compile Include="public\scripts\controllers\PageController.js" />
+    <Compile Include="public\scripts\services\ImageService.js" />
     <Compile Include="public\test.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <Content Include="package.json" />
+    <Content Include="public\images\throwableOne.png" />
     <Content Include="README.md" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
@@ -51,8 +52,8 @@
     <Content Include="views\layout.vash" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\" />
     <Folder Include="App_Start\" />
+    <Folder Include="bin\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\scripts\" />
@@ -60,6 +61,7 @@
     <Folder Include="public\scripts\controllers\launchers\" />
     <Folder Include="public\scripts\controllers\throwables\" />
     <Folder Include="public\scripts\factories\" />
+    <Folder Include="public\scripts\directives\" />
     <Folder Include="public\scripts\utilities\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />

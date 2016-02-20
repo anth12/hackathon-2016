@@ -1,0 +1,1 @@
+App.service("CalculatorService",function(){this.movementData=function(e,t){e.y-t.y,t.x-e.x}});
