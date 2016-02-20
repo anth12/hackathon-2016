@@ -1,5 +1,10 @@
 ﻿App.service('CalculatorService', ['InteractionFactory', function (InteractionFactory) {
         
+        this.friction = function () {
+
+        }
+        
+        
         this.movementData = function () {
             var down = InteractionFactory.downData;
             var up = InteractionFactory.upData;

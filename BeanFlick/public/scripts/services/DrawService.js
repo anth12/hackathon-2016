@@ -1,4 +1,5 @@
-﻿App.service('DrawService', ['CanvasFactory', 'InteractionFactory', 'ImageFactory', function (CanvasFactory, InteractionFactory, ImageFactory) {
+﻿App.service('DrawService', ['CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GlobalSettingsService', 'CalculatorService', '$q',
+    function (CanvasFactory, InteractionFactory, ImageFactory, GlobalSettingsService, CalculatorService, $q) {
         
         var animationLoop;
         var interval;
@@ -14,9 +15,14 @@
         
         this.movement = function () {
             
-            var deferred = Q.defer();
+            var deferred = $q.defer();
 
             interval = setInterval(function () {
+                
+                
+                CalculatorService.friction();
+
+                InteractionFactory.movementData.speedX -= GlobalSettingsService.globalSettings().friction;
 
                 if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
                     InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;

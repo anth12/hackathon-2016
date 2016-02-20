@@ -1,6 +1,6 @@
 ﻿// returns a new image to be drawn to the canvas
 
-App.service('ImageService', function () {
+App.service('ImageService', ['$q', function ($q) {
     
     var imagePaths = {
         launcherOne: "/images/launcherOne.png",
@@ -20,7 +20,7 @@ App.service('ImageService', function () {
         
         image.src = imagePaths[$imageName];
         
-        var deferred = Q.defer();
+        var deferred = $q.defer();
         
         image.onload = function () {
                         
@@ -39,4 +39,4 @@ App.service('ImageService', function () {
 
     }
 
-})
+}])
