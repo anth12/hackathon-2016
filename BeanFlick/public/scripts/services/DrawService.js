@@ -13,21 +13,29 @@
         }
         
         this.movement = function () {
+            
+            var deferred = Q.defer();
+
             interval = setInterval(function () {
 
                 if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
                     InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
                 } else {
                     clearInterval(interval);
+                    deferred.resolve(true);
                 }
                 
                 if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 && InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft < CanvasFactory.offsetLeft + CanvasFactory.width) {
                     InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
                 } else {
                     clearInterval(interval);
+                    deferred.resolve(true);
                 }
 
             })
+
+            return deferred.promise;
+
         }
         
         function startAnimation(image) {

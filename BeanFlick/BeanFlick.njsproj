@@ -82,10 +82,7 @@
     <Folder Include="public\min\styles\" />
     <Folder Include="public\scripts\" />
     <Folder Include="public\scripts\controllers\" />
-    <Folder Include="public\scripts\controllers\launchers\" />
-    <Folder Include="public\scripts\controllers\throwables\" />
     <Folder Include="public\scripts\factories\" />
-    <Folder Include="public\scripts\directives\" />
     <Folder Include="public\scripts\utilities\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />
