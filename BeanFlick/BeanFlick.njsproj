@@ -20,8 +20,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <ProjectView>ShowAllFiles</ProjectView>
-    <NodejsPort>1337</NodejsPort>
-    <StartWebBrowser>true</StartWebBrowser>
+    <NodejsPort>3000</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,31 +34,34 @@
     <Compile Include="App_Start\ApplicationStart.js" />
     <Compile Include="App_Start\RouteConfig.js" />
     <Compile Include="App_Start\SocketConfig.js" />
-    <Compile Include="Domain\Game.js" />
-    <Compile Include="Domain\UserSession.js" />
-    <Compile Include="Domain\UserGame.js" />
-    <Compile Include="Domain\User.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="public\min\scripts\App.js" />
+    <Compile Include="public\min\scripts\controllers\GameController.js" />
+    <Compile Include="public\min\scripts\controllers\PageController.js" />
+    <Compile Include="public\min\scripts\factories\CanvasFactory.js" />
+    <Compile Include="public\min\scripts\services\CalculatorService.js" />
+    <Compile Include="public\min\scripts\services\ImageService.js" />
+    <Compile Include="public\min\scripts\utilities\q.js" />
     <Compile Include="public\scripts\App.js" />
     <Compile Include="public\scripts\controllers\GameController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
+    <Compile Include="public\scripts\factories\CanvasFactory.js" />
+    <Compile Include="public\scripts\factories\ImageFactory.js" />
+    <Compile Include="public\scripts\factories\InteractionFactory.js" />
     <Compile Include="public\scripts\services\CalculatorService.js" />
     <Compile Include="public\scripts\services\DrawService.js" />
     <Compile Include="public\scripts\services\ImageService.js" />
-    <Compile Include="public\scripts\services\UserService.js" />
+    <Compile Include="public\scripts\utilities\q.js" />
     <Compile Include="public\test.js" />
     <Compile Include="routes\api\game.js" />
     <Compile Include="routes\api\user.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
-    <Compile Include="Services\DataAccess\GameDataStore - Copy.js" />
-    <Compile Include="Services\DataAccess\GameDataStore.js" />
-    <Compile Include="Services\DataAccess\UserDataStore.js" />
-    <Compile Include="Services\GameService.js" />
-    <Compile Include="Services\UserService.js" />
     <Content Include="package.json" />
     <Content Include="public\images\throwableOne.png" />
+    <Content Include="public\min\styles\style.css" />
+    <Content Include="public\styles\style.scss" />
     <Content Include="README.md" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
@@ -68,22 +71,23 @@
   <ItemGroup>
     <Folder Include="App_Start\" />
     <Folder Include="bin\" />
-    <Folder Include="Domain\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
+    <Folder Include="public\min\" />
+    <Folder Include="public\min\scripts\" />
+    <Folder Include="public\min\scripts\controllers\" />
+    <Folder Include="public\min\scripts\factories\" />
+    <Folder Include="public\min\scripts\services\" />
+    <Folder Include="public\min\scripts\utilities\" />
+    <Folder Include="public\min\styles\" />
     <Folder Include="public\scripts\" />
     <Folder Include="public\scripts\controllers\" />
-    <Folder Include="public\scripts\controllers\launchers\" />
-    <Folder Include="public\scripts\controllers\throwables\" />
     <Folder Include="public\scripts\factories\" />
-    <Folder Include="public\scripts\directives\" />
     <Folder Include="public\scripts\utilities\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\DataAccess\" />
     <Folder Include="views\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

@@ -14,27 +14,27 @@ App.service('ImageService', function () {
         throwableFour: "/images/throwableFour.png"
     }
     
-    this.getImage = function ($imageName) {
+    this.getImage = function ($imageName, $type) {
         var image = new Image();
         var imageProperties = {};
         
         image.src = imagePaths[$imageName];
         
         var deferred = Q.defer();
-
-        image.onload = function () {
-
-            imageProperties.width = image.width;
-            imageProperties.height = image.height;
-            imageProperties.centerX = image.width / 2;
-            imageProperties.centerY = image.height / 2;
         
-            deferred.resolve ({
+        image.onload = function () {
+                        
+            deferred.resolve({
+                name: $imageName,
                 image: image,
-                imageProperties: imageProperties
+                type: $type,
+                width: image.width,
+                height: image.height,
+                centerX: image.width / 2,
+                centerY: image.height / 2
             })
         }
-
+        
         return deferred.promise;
 
     }
