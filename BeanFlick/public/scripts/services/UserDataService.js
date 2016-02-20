@@ -1,11 +1,11 @@
-﻿App.service('UserDataService', function($http) {
+﻿App.service('UserDataService', function($http, $q) {
 
     var userDataService = {
         currentUser: null,
 
         getCurrentUser: function() {
 
-            var deferred = Q.defer();
+            var deferred = $q.defer();
             var sessionId = localStorage.getItem('SessionId');
 
             if (sessionId == null) {

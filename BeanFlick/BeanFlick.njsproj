@@ -41,6 +41,7 @@
     <Compile Include="Domain\User.js" />
     <Compile Include="gulpfile.js" />
     <Compile Include="public\scripts\App.js" />
+    <Compile Include="public\scripts\controllers\configuration\ConfigurationController.js" />
     <Compile Include="public\scripts\controllers\configuration\PopularController.js" />
     <Compile Include="public\scripts\controllers\GameController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />

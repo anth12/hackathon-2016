@@ -8,6 +8,14 @@
                 <div class="modal">
 
                     <h1>Welcome <b>{{ currentUser.Name }}</b></h1>
+                    <div ng-controller="PopularController">
+                        <ul>
+                            <li ng-repeat="game in popularGames">
+                                {{ game.Name }}
+                                <img src="{{ game.PreviewImage }}" alt="{{ game.Name }}" />
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
-﻿App.service('GameDataService', function($http) {
+﻿App.service('GameDataService', function($http, $q) {
 
     var userService = {
         currentUser: null,
 
         getPopular: function() {
             
-            var deferred = Q.defer();
+            var deferred = $q.defer();
 
-            $http.post('/api/game/popular').then(function(response) {
+            $http.get('/api/game/popular').then(function(response) {
                 
                 deferred.resolve(response.data);
             });
@@ -17,7 +17,7 @@
 
         get: function (gameId) {
             
-            var deferred = Q.defer();
+            var deferred = $q.defer();
             
             $http.post('/api/game/' + gameId).then(function (response) {
                 

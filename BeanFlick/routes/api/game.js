@@ -5,7 +5,7 @@ var gameService = require('../../Services/GameService');
 /* GET */
 router.get('/popular', function (req, res) {
     
-    userService.getPopular().then(function (games) {
+    gameService.getPopular().then(function (games) {
         
         res.send(games);
     });
