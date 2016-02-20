@@ -34,15 +34,21 @@
     <Compile Include="App_Start\ApplicationStart.js" />
     <Compile Include="App_Start\RouteConfig.js" />
     <Compile Include="App_Start\SocketConfig.js" />
+    <Compile Include="Domain\User.js" />
     <Compile Include="gulpfile.js" />
     <Compile Include="public\scripts\App.js" />
     <Compile Include="public\scripts\controllers\GameController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
     <Compile Include="public\scripts\services\ImageService.js" />
     <Compile Include="public\test.js" />
+    <Compile Include="routes\api\user.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
+    <Compile Include="Services\DataAccess\GameDataStore - Copy.js" />
+    <Compile Include="Services\DataAccess\GameDataStore.js" />
+    <Compile Include="Services\DataAccess\UserDataStore.js" />
+    <Compile Include="Services\UserService.js" />
     <Content Include="package.json" />
     <Content Include="public\images\throwableOne.png" />
     <Content Include="README.md" />
@@ -54,6 +60,7 @@
   <ItemGroup>
     <Folder Include="App_Start\" />
     <Folder Include="bin\" />
+    <Folder Include="Domain\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\scripts\" />
@@ -66,6 +73,9 @@
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />
     <Folder Include="routes\" />
+    <Folder Include="routes\api\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\DataAccess\" />
     <Folder Include="views\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
