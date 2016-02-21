@@ -3,7 +3,9 @@
 @import "grid";
 @import "fonts/font";
 
-@import 'modules/configuration';
+@import 'modules/configuration/modal';
+@import 'modules/configuration/upload';
+@import 'modules/configuration/search';
 
 @import "modules/game/game";
 @import "modules/game/sidebar";

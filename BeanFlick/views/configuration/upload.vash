@@ -1,0 +1,28 @@
+﻿<div ng-controller="UploadController">
+
+    <div class="upload" ng-click="toggle(true)">
+        <img src="/images/upload.png" alt="Upload your own image" />
+        <h2>Upload your own mugshot</h2>
+    </div>
+
+    <div class="upload-form" ng-class="{enabled: Enabled}">
+        <a class="close" ng-click="toggle(false)">
+            Back
+        </a>
+
+        <h1>Create you personalized game and <span>share with Friends</span></h1>
+        <div>
+            <input type="text" ng-model="Name" placeholder="Name" />
+        </div>
+        <div>
+            <input type="file" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(event)">
+        </div>
+        <div class="upload-preview">
+            <img src="{{ Image }}"/>
+            <div class="overlay"></div>
+            <span class="marker" data-id="MouthLeft"></span>
+            <span class="marker" data-id="MouthRight"></span>
+        </div>
+
+    </div>
+</div>

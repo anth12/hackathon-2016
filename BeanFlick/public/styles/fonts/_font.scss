@@ -1,10 +1,10 @@
 
 @font-face {
   font-family: 'InsaniburgerwithCheese';
-  src: url('/Styles/fonts/InsaniburgerwithCheese.eot?#iefix') format('embedded-opentype'),  
-      url('/Styles/fonts/InsaniburgerwithCheese.woff') format('woff'), 
-      url('/Styles/fonts/InsaniburgerwithCheese.ttf')  format('truetype'), 
-      url('/Styles/fonts/InsaniburgerwithCheese.svg#InsaniburgerwithCheese') format('svg');
+  src: url('/styles/fonts/InsaniburgerwithCheese.eot?#iefix') format('embedded-opentype'),  
+      url('/styles/fonts/InsaniburgerwithCheese.woff') format('woff'), 
+      url('/styles/fonts/InsaniburgerwithCheese.ttf')  format('truetype'), 
+      url('/styles/fonts/InsaniburgerwithCheese.svg#InsaniburgerwithCheese') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,4 +14,15 @@ h2 span,
 h3 span,
 h4 span{
     color: $tertiaryFont;
+}
+
+input[type="text"],
+input[type="number"]{
+    font-family: 'InsaniburgerwithCheese', Helvetica, sans-serif;
+    background: $searchBackground;
+    color: $baseFont;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: 1.4em;
+    border: none;
 }

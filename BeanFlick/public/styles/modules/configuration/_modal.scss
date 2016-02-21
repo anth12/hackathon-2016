@@ -1,0 +1,57 @@
+﻿/*
+    Styles used by the game configuration modal
+*/
+
+body.no-scroll{
+    overflow-y: hidden;
+}
+
+.modal-background{
+    color: $secondaryFont;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: rgba(135, 80, 156, 0.75);
+    overflow-y: auto;
+
+    .modal{
+        background: $modalBackground;
+        position: relative;
+        margin: 50px auto;
+        width: 90%;
+        max-width: 960px;
+        min-height: 400px;
+        padding: 20px;
+    }
+
+    .character{
+        position: relative;
+        overflow: hidden;
+        padding: 0px;
+        cursor: pointer;
+
+        img{
+            float: left;
+        }
+
+        &:hover .overlay{
+            bottom: 0;
+        }
+
+        .overlay{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -50%;
+            color: $baseFont;
+            background: rgba(135, 80, 156, 0.75);
+            transition: 0.3s all;
+            padding: 5px;
+            text-align: center;
+        }
+    }
+
+}
