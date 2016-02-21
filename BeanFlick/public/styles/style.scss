@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "fonts/_font";
 
 /*
     Modules
@@ -50,7 +51,7 @@ img {
 
 // global 
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'InsaniburgerwithCheese';
     color: $baseFont;    
 }
 

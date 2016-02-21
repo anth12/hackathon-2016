@@ -5,7 +5,7 @@ var userService = require('../../Services/UserService');
 /* POST create */
 router.post('/create', function (req, res) {
 
-    var user = userService.createUser().then(function (user) {
+    userService.createUser().then(function (user) {
 
         userService.createSession(user.Id, req.connection.remoteAddress).then(function (session) {
 
@@ -17,8 +17,8 @@ router.post('/create', function (req, res) {
 });
 
 /* GET session */
-router.get('/*', function (req, res) {
-    var id = req.params[0];
+router.get('/:id', function (req, res) {
+    var id = req.params.id;
 
     userService.getBySession(id).then(function(user) {
         

@@ -1,0 +1,1 @@
+App.service("UserGameDataService",function(e,r){var t={currentUser:null,start:function(t){var a=r.defer(),n=localStorage.getItem("SessionId");return e.get("/api/game/start/"+n+"/"+t).then(function(e){a.resolve(e.data)}),a.promise}};return t});

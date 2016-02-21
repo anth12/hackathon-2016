@@ -1,6 +1,6 @@
-﻿App.controller('PageController', function ($scope, UserDataService) {
+﻿App.controller('PageController', function ($scope, UserDataService, CurrentGameFactory) {
     
-    $scope.currentGame = {};
+    $scope.CurrentGameFactory = CurrentGameFactory;
     
     // Ensure a valid user is found
     if (UserDataService.currentUser == null) {

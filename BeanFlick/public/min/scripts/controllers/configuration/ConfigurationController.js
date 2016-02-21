@@ -1,1 +1,1 @@
-App.controller("ConfigurationController",function(o,n){});
+App.controller("ConfigurationController",function(n,t,o){n.startGame=function(n){t.start(n).then(function(n){o.currentGame=n})}});

@@ -9,6 +9,7 @@
 
 <script src="/scripts/services/GameDataService.js"></script>
 <script src="/scripts/services/UserDataService.js"></script>
+<script src="/scripts/services/UserGameDataService.js"></script>
 
 <script src="/scripts/services/ImageService.js"></script>
 <script src="/scripts/services/CalculatorService.js"></script>
@@ -18,9 +19,9 @@
 <script src="/scripts/factories/CanvasFactory.js"></script>
 <script src="/scripts/factories/InteractionFactory.js"></script>
 <script src="/scripts/factories/ImageFactory.js"></script>
-<script src="/scripts/factories/GlobalSettingsFactory.js"></script>
 
-<script src="/scripts/controllers/PageController.js"></script>
+<script src="/scripts/factories/CurrentGameFactory.js"></script>
+<script src="/scripts/factories/GlobalSettingsFactory.js"></script><script src="/scripts/controllers/PageController.js"></script>
 <script src="/scripts/controllers/GameController.js"></script>
 
 <script src="/scripts/controllers/configuration/ConfigurationController.js"></script>

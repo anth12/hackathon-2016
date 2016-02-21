@@ -1,6 +1,6 @@
 ﻿<div class="row" ng-controller="PopularController">
     <div class="carousel">
-        <div class="character-1 column-2" ng-repeat="game in popularGames">
+        <div class="character column-2" ng-repeat="game in popularGames" ng-click="startGame(game._id)">
             <img src="{{ game.PreviewImage }}" alt="{{ game.Name }}" />
             <div class="overlay">
                 {{ game.Name }}

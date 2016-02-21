@@ -6,4 +6,6 @@ var gameDataStore = new Datastore({
     autoload: true
 });
 
+//gameDataStore.ensureIndex({ fieldName: 'UrlCode', unique: true });
+
 module.exports = gameDataStore;

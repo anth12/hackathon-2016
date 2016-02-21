@@ -2,7 +2,7 @@
 
     @html.block('content', function(model){
             
-        <div ng-if="currentGame == null">
+        <div ng-if="CurrentGameFactory.currentGame == null">
 
             @html.include('configuration/modal')
 

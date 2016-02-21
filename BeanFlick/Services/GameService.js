@@ -1,6 +1,12 @@
 ﻿var guid = require('node-uuid');
-var gameDataStore = require('./DataAccess/GameDataStore');
+
 var Game = require('../Domain/Game');
+var UserGame = require('../Domain/UserGame');
+
+var gameDataStore = require('./DataAccess/GameDataStore');
+var userGameDataStore = require('./DataAccess/UserGameDataStore');
+
+var userService = require('./UserService');
 
 var gameService = {
     
@@ -30,6 +36,88 @@ var gameService = {
         });
     },
     
+    getOrCreateUserGame: function(sessionId, gameId) {
+
+        return new Promise(function (resolve, reject) {
+
+            // Validate the session
+            userService.getBySession(sessionId).then(function(user) {
+
+                // Check for existing UserGames
+                userGameDataStore.find({ UserId: user.Id, GameId: gameId }, function(err, existingUserGame) {
+
+                    if (existingUserGame != null && existingUserGame.length > 0) {
+
+                        resolve(existingUserGame[0]);
+                    } else {
+
+                        // Create a new User Game
+                        gameService.createUserGame(user.Id, gameId).then(function(game) {
+                            resolve(game);
+                        });
+                    }
+                });
+
+            });
+
+        });
+    },
+    
+    createUserGame: function(userId, gameId) {
+
+        return new Promise(function(resolve, reject) {
+
+            var userGame = new UserGame(userId, gameId);
+
+            userGameDataStore.insert(userGame, function(err, docs) {
+
+                resolve(docs[0]);
+            });
+        });
+    },
+    
+    //#endregion
+    
+    //#region Sum
+    
+    sumPoints: function (gameId) {
+        
+        return new Promise(function (resolve, reject) {
+            
+            var query = gameId != null ? { GameId: gameId } : {};
+            
+            gameDataStore.find(query, function (err, docs) {
+                
+                var sum = 0;
+                docs.forEach(function (doc) {
+                    sum += doc.TotalLaunches;
+                });
+                
+                resolve(sum);
+            });
+
+        });
+    },
+
+    sumLaunches: function(gameId) {
+        
+        return new Promise(function (resolve, reject) {
+
+            var query = gameId != null ? { GameId: gameId } : {};
+
+            gameDataStore.find(query, function (err, docs) {
+
+                var sum = 0;
+                docs.forEach(function(doc) {
+                    sum += doc.TotalLaunches;
+                });
+
+                resolve(sum);
+            });
+
+        });
+    },
+
     //#endregion
 
     createUser: function () {

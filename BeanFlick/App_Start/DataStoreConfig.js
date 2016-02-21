@@ -11,8 +11,7 @@ var dataStoreConfig = function (app) {
         /*
          *  Add the Seed Data
          */
-        var people = [
-            'Boris Johnson', 'Donald Trump', 'Barack Obama', 'David Cameron' ];
+        var people = ['Boris Johnson', 'Donald Trump', 'Ed Miliband', 'David Cameron' ];
         
         people.forEach(function (person) {
             var nameUrl = person.replace(/\s/, '-').toLowerCase();
