@@ -8,6 +8,10 @@
             height: 100
         },
         
+        mouthSpeed: 1,
+        
+        mouthClosed: false,
+        
         throwableSize: {
             width: 50
         },

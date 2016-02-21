@@ -1,1 +1,1 @@
-App.factory("CanvasFactory",function(){var t=document.getElementById("canvas"),e=t.getContext("2d"),f=t.offsetHeight,o=t.offsetWidth,n=t.offsetTop,a=t.offsetLeft;return{canvasElement:t,canvasContext:e,height:f,width:o,offsetTop:n,offsetLeft:a}});
+App.factory("CanvasFactory",function(){var t=document.getElementById("canvas"),e=t.getContext("2d"),n=t.offsetHeight,a=t.offsetWidth;return{canvasElement:t,canvasContext:e,height:n,width:a}});

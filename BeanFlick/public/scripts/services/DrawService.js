@@ -11,7 +11,6 @@
     var mouthHeight;
     var context;
     var mouthSection;
-    var mouthClosed = true;
     
     this.draw = function () {
         throwable = ImageFactory.throwable;
@@ -70,9 +69,7 @@
                 });
             }
             
-            if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 
-                        && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
-                
+            if (InteractionFactory.y - ImageFactory.throwable.centerY > 0  && InteractionFactory.y + ImageFactory.throwable.centerY < CanvasFactory.height) {
                 InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
             } else {
                 clearInterval(interval);
@@ -82,9 +79,7 @@
                 });
             }
             
-            if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 
-                        && InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft < CanvasFactory.offsetLeft + CanvasFactory.width) {
-                
+            if (InteractionFactory.x - ImageFactory.throwable.centerX > 0  && InteractionFactory.x + ImageFactory.throwable.centerX < CanvasFactory.width) {
                 InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
             } else {
                 clearInterval(interval);
@@ -107,13 +102,13 @@
         
         context.drawImage(face.image, 0, 0, face.width, face.height);
 
-        if (GlobalSettingsFactory.mouthArea.y >= mouthY - 100 && mouthClosed) {
-            mouthY += 1;
+        if (GlobalSettingsFactory.mouthArea.y >= mouthY - 100 && GlobalSettingsFactory.mouthClosed) {
+            mouthY += GlobalSettingsFactory.mouthSpeed;
         } else {
-            mouthClosed = false;
-            mouthY -= 1;
+            GlobalSettingsFactory.mouthClosed = false;
+            mouthY -= GlobalSettingsFactory.mouthSpeed;
             if (GlobalSettingsFactory.mouthArea.y >= mouthY) {
-                mouthClosed = true;
+                GlobalSettingsFactory.mouthClosed = true;
             }
         }
 

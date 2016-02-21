@@ -14,8 +14,8 @@
             $scope.dragAllowed = true;
             
             InteractionFactory.downData = {
-                x: $event.pageX - CanvasFactory.canvasElement.offsetLeft,
-                y: $event.pageY - CanvasFactory.canvasElement.offsetTop,
+                x: $event.pageX,
+                y: $event.pageY,
                 time: Date.now()
             }
 
@@ -25,8 +25,8 @@
     
     $scope.moveInteraction = function ($event) {
         if ($scope.dragAllowed && $scope.interactionAllowed) {
-            InteractionFactory.x = $event.pageX - CanvasFactory.offsetLeft;
-            InteractionFactory.y = $event.pageY - CanvasFactory.offsetTop;
+            InteractionFactory.x = $event.pageX;
+            InteractionFactory.y = $event.pageY;
         }
     }
     
@@ -36,8 +36,8 @@
             $scope.interactionAllowed = false;
             
             InteractionFactory.upData = {
-                x: $event.pageX - CanvasFactory.canvasElement.offsetLeft,
-                y: $event.pageY - CanvasFactory.canvasElement.offsetTop,
+                x: $event.pageX,
+                y: $event.pageY,
                 time: Date.now()
             }
             
