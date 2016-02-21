@@ -25,8 +25,20 @@
             });
             
             return deferred.promise;
-        } /* getPopular */
+        }, /* getByUrl */
 
+        getHighscores: function (gameId) {
+    
+            var deferred = $q.defer();
+    
+            $http.get('/api/highscore/' + gameId).then(function (response) {
+    
+                deferred.resolve(response.data);
+            });
+    
+            return deferred.promise;
+        } /* getHighscores */
+    
     } /* userService */
 
     return userService;

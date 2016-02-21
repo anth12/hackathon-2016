@@ -1,14 +1,47 @@
 ﻿@html.extend('layout', function(model){
 
     @html.block('content', function(model){
-            
+        
         <div ng-if="CurrentGameFactory.game == null">
 
             @html.include('configuration/modal')
 
         </div>
 
-        <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="1000" height="700" style="border: 1px solid black;"></canvas>
+<div class="column-8 main-content">
+    <img src="/images/beanflicklogo.png" alt="logo" class="logo">
+    <h1>{{ CurrentGameFactory.userGame.TotalPoints }} Points | {{ CurrentGameFactory.userGame.TotalLaunches }} Launches</h1>
+    <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="800" height="600">
+    </canvas>
+</div>
+        <div class="column-4 sidebar-content">
+    <h1>{{ CurrentGameFactory.game.Name }}</h1>
+
+    @html.include('game/highscores')
+
+    <table class="updates">
+        <thead>
+            <tr>
+                <th>Upgrades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="upgrade1"><img src="images/submachine-gun.png" alt="upgrade"></td>
+                <td class="upgrade2"><img src="images/submachine-gun.png" alt="upgrade"></td>
+            </tr>
+            <tr>
+                <td class="upgrade3"><img src="images/submachine-gun.png" alt="upgrade"></td>
+                <td class="upgrade4"><img src="images/submachine-gun.png" alt="upgrade"></td>
+            </tr>
+            <tr>
+                <td class="upgrade5"><img src="images/submachine-gun.png" alt="upgrade"></td>
+                <td class="upgrade6"><img src="images/submachine-gun.png" alt="upgrade"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
 
     })
 

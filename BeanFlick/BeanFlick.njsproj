@@ -47,6 +47,7 @@
     <Compile Include="public\scripts\controllers\configuration\ConfigurationController.js" />
     <Compile Include="public\scripts\controllers\configuration\PopularController.js" />
     <Compile Include="public\scripts\controllers\GameController.js" />
+    <Compile Include="public\scripts\controllers\HighscoreController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
     <Compile Include="public\scripts\factories\CanvasFactory.js" />
     <Compile Include="public\scripts\factories\ImageFactory.js" />
@@ -63,10 +64,12 @@
     <Compile Include="public\scripts\services\UserGameDataService.js" />
     <Compile Include="public\scripts\services\UserService.js" />
     <Compile Include="public\test.js" />
-    <Compile Include="routes\api\game.js" />
-    <Compile Include="routes\api\user.js" />
+    <Compile Include="routes\api\Highscore.js" />
+    <Compile Include="routes\api\Game.js" />
+    <Compile Include="routes\api\User.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="bin\www" />
+    <Compile Include="routes\users.js" />
     <Compile Include="Services\DataAccess..\GameDataStore - Copy.js" />
     <Compile Include="Services\DataAccess..\GameDataStore.js" />
     <Compile Include="Services\DataAccess..\UserDataStore.js" />
@@ -74,6 +77,7 @@
     <Compile Include="Services\DataAccess\GameDataStore.js" />
     <Compile Include="Services\DataAccess\UserDataStore.js" />
     <Compile Include="Services\DataAccess\UserGameDataStore.js" />
+    <Compile Include="Services\HighscoreService.js" />
     <Compile Include="Services\GameService.js" />
     <Compile Include="Services\UserService.js" />
     <Content Include="package.json" />
@@ -89,7 +93,9 @@
     <Content Include="views\configuration\popular.vash" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
+    <Content Include="views\game\highscores.vash" />
     <Content Include="views\game\scripts.vash" />
+    <Content Include="views\game\sidebar.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
   </ItemGroup>

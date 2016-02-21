@@ -5,12 +5,14 @@
 		<title>@model.title | Bean Flick</title>
 		<link rel="stylesheet" href="/min/styles/style.css" type="text/css" media="screen" charset="utf-8">
 	</head>
-	<body ng-controller="PageController" ng-class="{'no-scroll': CurrentGameFactory.game == null}">		
-        
-                
-		@html.block('content')
-        		
+<body ng-controller="PageController" ng-class="{'no-scroll': CurrentGameFactory.game == null}">
 
-        @html.block('scripts')
-	</body>
+    <section class="wrapper main">
+        <div class="row">
+            @html.block('content')
+        </div>
+    </section>
+
+    @html.block('scripts')
+</body>
 </html>

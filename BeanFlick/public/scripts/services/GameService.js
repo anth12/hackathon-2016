@@ -1,19 +1,17 @@
-﻿App.service('GameService', ['$q', 'ImageService', 'ImageFactory', 'DrawService', 'InteractionFactory', 'GlobalSettingsFactory', 'CurrentGameFactory',
-    function ($q, ImageService, ImageFactory, DrawService, InteractionFactory, GlobalSettingsFactory, CurrentGameFactory) {
+﻿App.service('GameService', 
+    function (ImageService, ImageFactory, DrawService, InteractionFactory, GlobalSettingsFactory) {
         
-        this.startGame = function () {
-            ImageService.getImages([
-                ["/images/throwableOne.png", "throwable"],
-                [CurrentGameFactory.game.BackgroundImage, "face"]
-            ]);
+    this.startGame = function () {
+        var image = ImageService.getImage("throwableOne", "throwable");
+        image.then(function(image) {
+            ImageFactory[image.type] = image;
+            DrawService.draw(image);
+        });
+    }
 
-            
-        }
+    this.resetGame = function (points) {
+        InteractionFactory.x = GlobalSettingsFactory.throwableStartPosition.x;
+        InteractionFactory.y = GlobalSettingsFactory.throwableStartPosition.y;
+    }
 
-        this.resetGame = function (points) {
-            InteractionFactory.x = GlobalSettingsFactory.throwableStartPosition.x;
-            InteractionFactory.y = GlobalSettingsFactory.throwableStartPosition.y;
-            console.log(points)
-        }
-
-    }]);
+});

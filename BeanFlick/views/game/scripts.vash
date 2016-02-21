@@ -23,6 +23,8 @@
 
 <script src="/scripts/factories/CurrentGameFactory.js"></script>
 <script src="/scripts/factories/GlobalSettingsFactory.js"></script>
+
+<script src="/scripts/controllers/HighscoreController.js"></script>
 <script src="/scripts/controllers/PageController.js"></script>
 <script src="/scripts/controllers/GameController.js"></script>
 

@@ -16,7 +16,7 @@ var dataStoreConfig = function (app) {
         people.forEach(function (person) {
             var nameUrl = person.replace(/\s/, '-').toLowerCase();
             var game = new Game(nameUrl, person, '/media/' + nameUrl + '.jpg');
-            game.PreviewImage = '/media/Preview/' + nameUrl + '.jpg';
+            game.PreviewImage = '/media/preview/' + nameUrl + '.jpg';
             gameDataStore.insert(game);
         });
 
