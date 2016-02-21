@@ -88,14 +88,14 @@
         mouthHandler();
         
         // Draws the clipped mouth section
-        drawMouthPolygon()
-        
+        drawMouthPolygon();
         context.drawImage(face.image, 0, 0, face.width, face.height);
         drawMouthMask()
         drawThrowArea()
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
         window.requestAnimationFrame(function () {
+            console.log('logging')
             startAnimation();
         });
     }
