@@ -1,1 +1,4 @@
-App.factory("ImageFactory",function(){return{}});
+App.factory('ImageFactory', function () {
+
+    return {};
+});

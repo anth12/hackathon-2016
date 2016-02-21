@@ -111,6 +111,7 @@ body {
 #notifications {
     background-color: $primaryColour;
     font-family: Helvetica, sans-serif;
+    z-index: 100;
 }
 
 .notification {

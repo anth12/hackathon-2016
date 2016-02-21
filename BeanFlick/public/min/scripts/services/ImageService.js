@@ -1,1 +1,67 @@
-App.service("ImageService",function(e,t,n,i){this.getImages=function(r){function a(n){return e(function(e,i){var r=new Image;r.src=n[0],r.onload=function(){var i=t.sizeImage(r),a=n[1],h=r.height,c=r.width,o=c/2,g=h/2;"throwable"===a&&(h=i.height,c=i.width,o=c/2,g=h/2),e({image:r,type:n[1],width:c,height:h,centerX:o,centerY:g})}})}var h=[];r.forEach(function(e){h.push(a(e))}),e.all(h).then(function(e){for(var t=0;t<e.length;t++){var r=e[t].type;n[r]=e[t]}i.draw()})}});
+// returns a new image to be drawn to the canvas
+
+App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawService) {
+
+    var imagePaths = {
+        launcherOne: "/images/launcherOne.png",
+        launcherTwo: "/images/launcherTwo.png",
+        launcherThree: "/images/launcherThree.png",
+        launcherFour: "/images/launcherFour.png",
+
+        throwableOne: "/images/throwableOne.png",
+        throwableTwo: "/images/throwableTwo.png",
+        throwableThree: "/images/throwableThree.png",
+        throwableFour: "/images/throwableFour.png"
+    };
+
+    this.getImages = function ($images) {
+
+        var promises = [];
+
+        function loadImage(imageData) {
+            return $q(function (resolve, reject) {
+                var image = new Image();
+                image.src = imageData[0];
+                image.onload = function () {
+                    var resized = CalculatorService.sizeImage(image);
+
+                    var type = imageData[1];
+                    var height = image.height;
+                    var width = image.width;
+                    var centerX = width / 2;
+                    var centerY = height / 2;
+
+                    if (type === "throwable") {
+                        height = resized.height;
+                        width = resized.width;
+                        centerX = width / 2;
+                        centerY = height / 2;
+                    }
+
+                    resolve({
+                        image: image,
+                        type: imageData[1],
+                        width: width,
+                        height: height,
+                        centerX: centerX,
+                        centerY: centerY
+                    });
+                };
+            });
+        }
+
+        $images.forEach(function (image) {
+            promises.push(loadImage(image));
+        });
+
+        $q.all(promises).then(function (images) {
+
+            for (var i = 0; i < images.length; i++) {
+                var type = images[i].type;
+                ImageFactory[type] = images[i];
+            }
+
+            DrawService.draw();
+        });
+    };
+});

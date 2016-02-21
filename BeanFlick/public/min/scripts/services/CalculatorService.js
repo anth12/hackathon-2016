@@ -1,1 +1,85 @@
-App.service("CalculatorService",function(t,e){this.friction=function(){var a=t.movementData.speedY,i=t.movementData.speedX,n=e.friction,h=!1,o=!1;return a>0&&(a-n>0?t.movementData.speedY-=n:h=!0),0>a&&(0>a+n?t.movementData.speedY+=n:h=!0),i>0&&(i-n>0?t.movementData.speedX-=n:o=!0),0>i&&(0>i+n?t.movementData.speedX+=n:o=!0),h&&o},this.movementData=function(){var e=t.downData,a=t.upData,i=e.y-a.y,n=a.x-e.x,h=a.time-e.time,o=h/1e3;return{clickLength:h,distanceX:n,distanceY:i,distanceXY:Math.sqrt(Math.pow(n,2)+Math.pow(i,2)),speedX:n/o,speedY:i/o,speedXY:Math.sqrt(Math.pow(n,2)+Math.pow(i,2))/o,raidanDirection:Math.atan2(i,-n),degreeDirection:180*Math.atan2(i,-n)/Math.PI}},this.scored=function(){return t.x>e.mouthArea.x&&t.x<e.mouthArea.x+e.mouthArea.width&&t.y<e.mouthArea.y+e.mouthArea.height?!0:void 0},this.sizeImage=function(t){var a=e.throwableSize.width,i=t.width/a;return{width:a,height:t.height/i}}});
+App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFactory) {
+
+    this.friction = function () {
+        var speedY = InteractionFactory.movementData.speedY;
+        var speedX = InteractionFactory.movementData.speedX;
+        var friction = GlobalSettingsFactory.friction;
+        var needToStopY = false;
+        var needToStopX = false;
+
+        if (speedY > 0) {
+            if (speedY - friction > 0) {
+                InteractionFactory.movementData.speedY -= friction;
+            } else {
+                needToStopY = true;
+            }
+        }
+
+        if (speedY < 0) {
+            if (speedY + friction < 0) {
+                InteractionFactory.movementData.speedY += friction;
+            } else {
+                needToStopY = true;
+            }
+        }
+
+        if (speedX > 0) {
+            if (speedX - friction > 0) {
+                InteractionFactory.movementData.speedX -= friction;
+            } else {
+                needToStopX = true;
+            }
+        }
+
+        if (speedX < 0) {
+            if (speedX + friction < 0) {
+                InteractionFactory.movementData.speedX += friction;
+            } else {
+                needToStopX = true;
+            }
+        }
+
+        return needToStopY && needToStopX;
+    };
+
+    this.movementData = function () {
+        var down = InteractionFactory.downData;
+        var up = InteractionFactory.upData;
+
+        var dy = down.y - up.y;
+
+        // Remember to flip coordinates because 0,0 is top left NOT bottom right
+        var dx = up.x - down.x;
+
+        var lengthMs = up.time - down.time;
+        var lengthS = lengthMs / 1000;
+
+        return {
+            clickLength: lengthMs,
+            distanceX: dx,
+            distanceY: dy,
+            distanceXY: Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)),
+            speedX: dx / lengthS,
+            speedY: dy / lengthS,
+            speedXY: Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) / lengthS,
+            raidanDirection: Math.atan2(dy, -dx),
+            degreeDirection: Math.atan2(dy, -dx) * 180 / Math.PI
+        };
+    };
+
+    this.scored = function () {
+        if (InteractionFactory.x > GlobalSettingsFactory.mouthArea.x && InteractionFactory.x < GlobalSettingsFactory.mouthArea.x + GlobalSettingsFactory.mouthArea.width && InteractionFactory.y < GlobalSettingsFactory.mouthArea.y + GlobalSettingsFactory.mouthArea.height) {
+            return true;
+        }
+    };
+
+    this.sizeImage = function (image) {
+        var width = GlobalSettingsFactory.throwableSize.width;
+        var divideValue = image.width / width;
+
+        return {
+            width: width,
+            height: image.height / divideValue
+        };
+    };
+});

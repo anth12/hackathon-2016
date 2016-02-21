@@ -1,1 +1,45 @@
-App.service("GameDataService",function(e,r){var t={currentUser:null,getPopular:function(){var t=r.defer();return e.get("/api/game/popular").then(function(e){t.resolve(e.data)}),t.promise},getByUrl:function(t){var n=r.defer();return e.get("/api/game/get/"+t).then(function(e){n.resolve(e.data)}),n.promise},getHighscores:function(t){var n=r.defer();return e.get("/api/highscore/"+t).then(function(e){n.resolve(e.data)}),n.promise}};return t});
+App.service('GameDataService', function ($http, $q) {
+
+    var userService = {
+        currentUser: null,
+
+        getPopular: function () {
+
+            var deferred = $q.defer();
+
+            $http.get('/api/game/popular').then(function (response) {
+
+                deferred.resolve(response.data);
+            });
+
+            return deferred.promise;
+        }, /* getPopular */
+
+        getByUrl: function (urlCode) {
+
+            var deferred = $q.defer();
+
+            $http.get('/api/game/get/' + urlCode).then(function (response) {
+
+                deferred.resolve(response.data);
+            });
+
+            return deferred.promise;
+        }, /* getByUrl */
+
+        getHighscores: function (gameId) {
+
+            var deferred = $q.defer();
+
+            $http.get('/api/highscore/' + gameId).then(function (response) {
+
+                deferred.resolve(response.data);
+            });
+
+            return deferred.promise;
+        } /* getHighscores */
+
+    }; /* userService */
+
+    return userService;
+});

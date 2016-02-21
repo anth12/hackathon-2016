@@ -1,41 +1,41 @@
-﻿App.service('NotificationService', function () {
+App.service('NotificationService', function () {
         
 
     var notificationService = {
         
         info: function(message) {
             
-            notificationService._show('info', message, timeout);
+            notificationService._show('info', 'fa fa-info' message, timeout);
         },
         success: function (message) {
             
-            notificationService._show('success', message, timeout);
+            notificationService._show('success', 'fa fa-trophy', message, timeout);
         },
         warn: function (message) {
             
-            notificationService._show('warn', message, timeout);
+            notificationService._show('warning', 'fa fa-exclamation-triangle', message, timeout);
         },
         error: function (message) {
 
-            notificationService._show('error', message, timeout);
+            notificationService._show('error', 'fa fa-exclamation' message, timeout);
         },
 
-        _show: function(type, message, timeout) {
+        _show: function(type, icon, message, timeout) {
             timeout = timeout || 5000;
 
-            $container = $('.notification-container');
+            var $container = $('.notification-wrapper');
 
             if ($container.length < 1) {
 
-                $('body').prepend('<div class="notification-container"></div>');
-                $container = $('.notification-container');
+                $('body').prepend('<div class="notification-wrapper"></div>');
+                $container = $('.notification-wrapper');
             }
 
             var id = parseInt(Math.random() * 10000);
 
             $container.prepend('<div class="notification ' + type + '" id="notification-' + id + '">' + 
-                                    message + 
-                                '</div>');
+                               '<div class="notification-icon">' + 'i<class="' + icon + '"></i>' + '</div'> +
+                               '<div class="notification-body">' + '<p>' + message + '</p>' + '</div>');
 
             setInterval(function () {
                 $('#notification-' + id).remove();

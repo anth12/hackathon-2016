@@ -1,4 +1,4 @@
-﻿<div class="modal-background" ng-controller="ConfigurationController">
+<div class="modal-background" ng-controller="ConfigurationController">
     <div class="wrapper modal">
 
         <div class="row">
@@ -12,6 +12,7 @@
         
 
         <button ng-click="testNotifiy('info')">Info</button>
+        <button ng-click="testNotifiy('success')">Success</button>
         <button ng-click="testNotifiy('warn')">Warn</button>
         <button ng-click="testNotifiy('error')">Error</button>
 
