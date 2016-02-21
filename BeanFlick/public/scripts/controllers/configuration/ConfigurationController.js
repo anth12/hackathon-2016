@@ -36,7 +36,7 @@ App.controller('ConfigurationController', function ($scope, NotificationService,
     // Attempt to auto-start
     var urlCode = location.pathname.replace(/^\//, '');
     
-    if (urlCode.length > 0 && /^[a-z\-]*$/.test(urlCode)) {
+    if (urlCode.length > 0 && /^[A-z0-9\-]*$/.test(urlCode)) {
         
         // Lookup the Url
         GameDataService.getByUrl(urlCode).then(function (game) {
