@@ -1,5 +1,8 @@
 ﻿App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFactory) {
     
+    var eventBufferX = [];
+    var eventBufferY = [];
+    
     this.friction = function () {
         var speedY = InteractionFactory.movementData.speedY;
         var speedX = InteractionFactory.movementData.speedX;
@@ -86,5 +89,23 @@
             height: image.height / divideValue
         }
     }
+    
+    this.moveBuffer = function ($event) {
+        eventBufferX.push($event.pageX);
+        eventBufferY.push($event.pageY);
+        
+        if (eventBufferY.length >= 60) {
+            if (eventBufferY[0] - eventBufferY[eventBufferY.length - 1] < 0) {
+                InteractionFactory.downData.y = $event.pageY;
+                InteractionFactory.downData.time = Date.now();
+
+            }
+            
+            if (eventBufferY.length >= 20) {
+
+            }
+        }
+    }
+
 
 })

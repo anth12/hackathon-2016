@@ -6,14 +6,16 @@ var babel = require('gulp-babel');
 var uglify = require('gulp-uglify');
 var minifycss = require('gulp-minify-css');
 var sass = require('gulp-sass');
+var rimraf = require('rimraf');
 
-gulp.task('styles', function(){
-  gulp.src(['public/styles/style.scss'])
+gulp.task('styles', function () {
+    gulp.src(['public/styles/style.scss'])
     .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+        errorHandler: function (error) {
+            console.log(error.message);
+            this.emit('end');
+        }
+    }))
     .pipe(sass())
     .pipe(autoprefixer('last 2 versions'))
     .pipe(gulp.dest('public/min/styles/'))
@@ -21,20 +23,26 @@ gulp.task('styles', function(){
     .pipe(gulp.dest('public/min/styles/'))
 });
 
-gulp.task('scripts', function(){
-  return gulp.src('public/scripts/**/*.js')
+gulp.task('scripts', function () {
+    return gulp.src('public/scripts/**/*.js')
     .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
-    }}))
+        errorHandler: function (error) {
+            console.log(error.message);
+            this.emit('end');
+        }
+    }))
     .pipe(babel())
     .pipe(gulp.dest('public/min/scripts/'))
     .pipe(uglify())
     .pipe(gulp.dest('public/min/scripts/'))
 });
 
-gulp.task('default', ['styles', 'scripts'], function (){
-  gulp.watch("public/styles/**/*.scss", ['styles']);
-  gulp.watch("public/scripts/**/*.js", ['scripts']);
+gulp.task('deleteDat', function (cb) {
+    rimraf(".ntvs_analysis.dat", cb);
+})
+
+gulp.task('default', ['styles', 'scripts', 'deleteDat'], function () {
+    gulp.watch("public/styles/**/*.scss", ['styles']);
+    gulp.watch("public/scripts/**/*.js", ['scripts']);
+    gulp.watch(".ntvs_analysis.dat" ['deleteDat']);
 });

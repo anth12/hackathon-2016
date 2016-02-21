@@ -6,5 +6,9 @@
     position: relative;
     .game-overlay {
         position: absolute;
+        width: 100%;
+    }
+    .logo {
+        width: 200px;
     }
 }

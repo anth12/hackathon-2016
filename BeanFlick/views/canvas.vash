@@ -1,3 +1,0 @@
-﻿<canvas ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" width="400" height="400">
-
-</canvas>

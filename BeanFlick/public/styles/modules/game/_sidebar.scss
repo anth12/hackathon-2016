@@ -1,0 +1,20 @@
+﻿/*
+    Styles used by the main Game view
+*/
+
+.sidebar {
+    background-color: $tertiaryColour;
+    .highscores {
+        thead { 
+            background-color: $altColour; 
+        }
+    }
+    .updates {
+        thead {
+            background-color: $altColour;
+        }
+    }
+    img {
+        width: 90px;
+    }
+}

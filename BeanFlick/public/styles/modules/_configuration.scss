@@ -6,6 +6,17 @@ body.no-scroll{
     overflow-y: hidden;
 }
 
+.modal {
+    background-color: $primaryColour; 
+    color: $secondaryFont;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 75%;
+}
+
 .modal-background{
     position: fixed;
     top: 0;
