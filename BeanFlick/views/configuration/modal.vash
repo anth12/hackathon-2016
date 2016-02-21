@@ -3,7 +3,7 @@
 
         <div class="row">
             <div class="title column-8">Pick your character</div>
-            <div class="beans-flicked column-4">2.4M Beans Flicked</div>
+            <div class="beans-flicked column-4">{{ TotalLaunches | number }} Beans Flicked</div>
         </div>
 
         <h1>Welcome <b>{{ currentUser.Name }}</b></h1>

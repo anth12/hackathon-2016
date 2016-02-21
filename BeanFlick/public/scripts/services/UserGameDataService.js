@@ -15,7 +15,33 @@
             });
 
             return deferred.promise;
-        } /* getCurrentUser */
+        }, /* getCurrentUser */
+        
+        sumLaunches: function (gameId) {
+            
+            var deferred = $q.defer();
+            
+            // Load the existing session
+            $http.get('/api/game/sum/launches/' + (gameId != null ? gameId : '')).then(function (response) {
+                
+                deferred.resolve(response.data.count);
+            });
+            
+            return deferred.promise;
+        }, /* sumLaunches */
+        
+        sumPoints: function (gameId) {
+            
+            var deferred = $q.defer();
+            
+            // Load the existing session
+            $http.get('/api/game/sum/launches/' + (gameId != null ? gameId : '')).then(function (response) {
+                
+                deferred.resolve(response.data.count);
+            });
+            
+            return deferred.promise;
+        }, /* sumPoints */
 
     } /* userDataService */
 

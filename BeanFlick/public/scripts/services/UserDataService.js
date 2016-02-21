@@ -8,10 +8,24 @@
             var deferred = $q.defer();
             var sessionId = localStorage.getItem('SessionId');
 
-            if (sessionId == null) {
+            if (sessionId != null) {
+                // Load the existing session
+                $http.get('/api/user/' + sessionId).then(function(response) {
+                    
+                    if (response.data == null || response.data == '') {
+                        //Session is not valid
+                        localStorage.removeItem('SessionId');
+
+                        return deferred.resolve(userDataService.getCurrentUser());
+                    }
+
+                    userDataService.currentUser = response.data;
+
+                    deferred.resolve(userDataService.currentUser);
+                });
+            }else{
 
                 // Create a new session
-
                 $http.post('/api/user/create').then(function(response) {
 
                     userDataService.currentUser = response.data;
@@ -23,15 +37,6 @@
 
                     var latestSession = userDataService.currentUser.Sessions[userDataService.currentUser.Sessions.length - 1];
                     localStorage.setItem('SessionId', latestSession.ClientId);
-                    deferred.resolve(userDataService.currentUser);
-                });
-            } else {
-
-                // Load the existing session
-                $http.get('/api/user/' + sessionId).then(function(response) {
-
-                    userDataService.currentUser = response.data;
-
                     deferred.resolve(userDataService.currentUser);
                 });
             }

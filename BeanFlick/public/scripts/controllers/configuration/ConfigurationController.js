@@ -15,7 +15,11 @@
             }
         });
     }
-     
+    
+    UserGameDataService.sumLaunches().then(function(totalLaunches) {
+
+        $scope.TotalLaunches = totalLaunches;
+    })
     
     // Attempt to auto-start
     var urlCode = location.pathname.replace(/^\//, '');
