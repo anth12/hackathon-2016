@@ -1,11 +1,5 @@
 ﻿App.controller('ConfigurationController', function ($scope, NotificationService, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
     
-    $scope.testNotifiy = function(type) {
-
-        NotificationService._show(type, 'Sample notification message');
-
-    }
-
     $scope.startGame = function(gameId) {
 
         UserGameDataService.start(gameId).then(function(gameContext) {

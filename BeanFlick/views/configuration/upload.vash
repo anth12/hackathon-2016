@@ -12,7 +12,7 @@
 
         <h1>Create you personalized game and <span>share with Friends</span></h1>
         <div>
-            <input type="text" ng-model="Name" placeholder="Name" />
+            <input type="text" ng-model="Name" placeholder="Name" /> <button ng-click="submit()">Create Game</button>
         </div>
         <div>
             <input type="file" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(event)">
@@ -20,8 +20,8 @@
         <div class="upload-preview">
             <img src="{{ Image }}"/>
             <div class="overlay"></div>
-            <span class="marker" data-id="MouthLeft"></span>
-            <span class="marker" data-id="MouthRight"></span>
+            <span class="marker" data-id="MouthLeft" ng-style="{'display: none': Image == null}"></span>
+            <span class="marker" data-id="MouthRight" ng-style="{'display: none': Image == null}"></span>
         </div>
 
     </div>

@@ -2,8 +2,8 @@
 
     $scope.Enabled = false;
     
-    $scope.MouthLeft = { X: 175, Y: 335 };
-    $scope.MouthRight = { X: 175, Y: 335 };
+    $scope.MouthLeft = { X: 165, Y: 335 };
+    $scope.MouthRight = { X: 180, Y: 335 };
 
     $scope.toggle = function(enabled) {
         $scope.Enabled = enabled;
@@ -19,6 +19,29 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+    
+    $scope.submit = function() {
+        
+        if ($scope.Image == null) {
+            NotificationService.warning('Please specify the Image you would like to use');
+            return;
+        }
+
+        if ($scope.Name == null || $scope.Name == '') {
+            NotificationService.warning('Please give your game a name');
+            return;
+        }
+
+        NotificationService.success('Achievement: Create a game');
+    }
+
+    var $elm = $('[data-id="MouthLeft"]');
+    $elm.css('left', $scope.MouthLeft.X + "px");
+    $elm.css('top', $scope.MouthLeft.Y + "px");
+    
+    $elm = $('[data-id="MouthRight"]');
+    $elm.css('left', $scope.MouthRight.X + "px");
+    $elm.css('top', $scope.MouthRight.Y + "px");
 
     var pressedMarker = null;
     $('.upload-preview').on('mousedown', '.marker', function(event) {
@@ -27,12 +50,13 @@
         document.addEventListener("mousemove" , $scope.mouseMove, false);
         
     });
+    
 
     $scope.mouseMove = function (event) {
         var parentPosition = $('.upload-preview').position();
 
-        $scope[pressedMarker].X = event.pageX;// - parentPosition.left;
-        $scope[pressedMarker].Y = event.pageY;// - parentPosition.top;
+        $scope[pressedMarker].X = event.pageX - parentPosition.left;
+        $scope[pressedMarker].Y = event.pageY - parentPosition.top;
         var $elm = $('[data-id="' + pressedMarker + '"]');
 
         $elm.css('left', $scope[pressedMarker].X + "px");

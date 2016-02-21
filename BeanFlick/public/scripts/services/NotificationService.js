@@ -3,19 +3,19 @@ App.service('NotificationService', function () {
 
     var notificationService = {
         
-        info: function(message) {
+        info: function(message, timeout) {
             
             notificationService._show('info', 'fa fa-info', message, timeout);
         },
-        success: function (message) {
+        success: function (message, timeout) {
             
             notificationService._show('success', 'fa fa-trophy', message, timeout);
         },
-        warn: function (message) {
+        warning: function (message, timeout) {
             
             notificationService._show('warning', 'fa fa-exclamation-triangle', message, timeout);
         },
-        error: function (message) {
+        error: function (message, timeout) {
 
             notificationService._show('error', 'fa fa-exclamation', message, timeout);
         },
@@ -33,12 +33,18 @@ App.service('NotificationService', function () {
 
             var id = parseInt(Math.random() * 10000);
 
-            $container.prepend('<div class="notification ' + type + '" id="notification-' + id + '">' + 
-                               '<div class="notification-icon">' + 'i<class="' + icon + '"></i>' + '</div'> +
-                               '<div class="notification-body">' + '<p>' + message + '</p>' + '</div>');
+            $container.prepend('<div class="notification ' + type + '" id="notification-' + id + '"></div>');
 
-            setInterval(function () {
-                $('#notification-' + id).remove();
+            $('#notification-' + id).html('<div class="notification-icon">' +
+                                                '<i class="' + icon + '"></i></div>' +
+                                                '<div class="notification-body"><p>' + message + '</p></div>' +
+                                            '</div>');
+
+            setTimeout(function () {
+                $('#notification-' + id).addClass('is-hidden');
+                setTimeout(function() {
+                    $('#notification-' + id).remove();
+                }, 500);
             }, timeout);
         }
     }

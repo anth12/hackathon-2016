@@ -1,7 +1,9 @@
 ﻿// notification overview 
-#notifications {
-    background-color: $primaryColour;
-    font-family: Helvetica, sans-serif;
+.notification-wrapper{
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    z-index: 9999;
 }
 
 // notification design 
@@ -40,7 +42,7 @@
 .notification {
     display: table;
     position: relative;
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     width: 500px;
     transition: all 0.2s ease;
     &.is-hidden {

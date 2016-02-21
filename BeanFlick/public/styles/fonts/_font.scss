@@ -16,13 +16,3 @@ h4 span{
     color: $tertiaryFont;
 }
 
-input[type="text"],
-input[type="number"]{
-    font-family: 'InsaniburgerwithCheese', Helvetica, sans-serif;
-    background: $searchBackground;
-    color: $baseFont;
-    padding: 10px 15px;
-    border-radius: 3px;
-    font-size: 1.4em;
-    border: none;
-}
