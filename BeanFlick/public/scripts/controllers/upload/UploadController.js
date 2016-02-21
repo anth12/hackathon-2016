@@ -19,38 +19,20 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
-    
-    $scope.submit = function() {
-        
+
+    $('.upload-form form').on('submit', function(event) {
+
         if ($scope.Image == null) {
             NotificationService.warning('Please specify the Image you would like to use');
-            return;
+            return event.preventDefault();
         }
 
         if ($scope.Name == null || $scope.Name == '') {
             NotificationService.warning('Please give your game a name');
-            return;
+            return event.preventDefault();
         }
 
-        var formData = new FormData($('.upload-form form')[0]);
-        
-        $.ajax({
-            type: 'POST',
-            url: '/api/custom/create',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-
-                location.href = data.UrlCode;
-            },
-            error: function (data) {
-
-                NotificationService.error('Failed to create custom game');
-            }
-        });
-    }
+    });
 
     var $elm = $('[data-id="MouthLeft"]');
     $elm.css('left', $scope.MouthLeft.X + "px");
@@ -85,5 +67,7 @@
     $scope.eleMouseUp = function (event) {
         document.removeEventListener("mousemove" , $scope.mouseMove , false);
         document.removeEventListener("mouseup" , $scope.eleMouseUp , false);
+
+        $scope.$apply();
     }
 });

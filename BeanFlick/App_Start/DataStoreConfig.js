@@ -11,28 +11,28 @@ var dataStoreConfig = function (app) {
         /*
          *  Add the Seed Data
          */
-        var boris = new Game('boris-johnson', 'Boris Johnson', '/media/boris-johnson.jpg');
+        var boris = new Game('boris-johnson', 'Boris Johnson', '/media/boris-johnson.png');
         boris.PreviewImage = '/media/preview/boris-johnson.jpg';
-        boris.MouthLeft = { X: 356, Y: 589 };
-        boris.MouthRight = { X: 507, Y: 579 };
+        boris.MouthLeft = { X: 153, Y: 254 };
+        boris.MouthRight = { X: 209, Y: 254 };
         gameDataStore.insert(boris);
         
-        var donald = new Game('donald-trump', 'Donald Trump', '/media/donald-trump.jpg');
+        var donald = new Game('donald-trump', 'Donald Trump', '/media/donald-trump.png');
         donald.PreviewImage = '/media/preview/donald-trump.jpg';
-        donald.MouthLeft = { X: 257, Y: 570 };
-        donald.MouthRight = { X: 411, Y: 544 };
+        donald.MouthLeft = { X: 166, Y: 203 };
+        donald.MouthRight = { X: 213, Y: 203 };
         gameDataStore.insert(donald);
         
-        var david = new Game('david-cameron', 'David Cameron', '/media/david-cameron.jpg');
+        var david = new Game('david-cameron', 'David Cameron', '/media/david-cameron.png');
         david.PreviewImage = '/media/preview/david-cameron.jpg';
-        david.MouthLeft = { X: 337, Y: 665 };
-        david.MouthRight = { X: 470, Y: 670 };
+        david.MouthLeft = { X: 164, Y: 310 };
+        david.MouthRight = { X: 220, Y: 310 };
         gameDataStore.insert(david);
         
-        var ed = new Game('ed-miliband', 'Ed Miliband', '/media/ed-miliband.jpg');
+        var ed = new Game('ed-miliband', 'Ed Miliband', '/media/ed-miliband.png');
         ed.PreviewImage = '/media/preview/ed-miliband.jpg';
-        ed.MouthLeft = { X: 350, Y: 669 };
-        ed.MouthRight = { X: 495, Y: 669 };
+        ed.MouthLeft = { X: 164, Y: 313 };
+        ed.MouthRight = { X: 231, Y: 313 };
         gameDataStore.insert(ed);
         
 

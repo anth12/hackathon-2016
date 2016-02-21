@@ -1,31 +1,56 @@
 ﻿var express = require('express');
+var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
 var router = express.Router();
 var Game = require('../../Domain/Game');
 var gameDataStore = require('../../Services/DataAccess/GameDataStore');
 
+var upload = multer({
+    dest: path.join(__dirname + "../../../public/media/public/"),
+    limits: {
+        fileSize: 2500000 //2.5mb
+    }
+});
+
+function createUrlCode(length) {
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    var result = '';
+    for (var i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
 
 /* POST Create Game */
-router.post('/create', function (req, res) {
+router.post('/create', upload.array('Image'), function (req, res) {
 
-    //var sessionId = req.params.sessionId;
+    var image = '/media/public/' + req.files[0].filename;
+
+    var game = new Game(createUrlCode(5), req.body.Name, image);
     
-    //fs.readFile(req.files.Image.path, function (err, data) {
-        
-    //    var newPath = path.join(__dirname + "../../media/public/");
-    //    fs.writeFile(newPath, data, function (err) {
-    //        res.redirect("back");
-    //    });
-    //});
+    game.MouthLeft = {
+        X: req.body['MouthLeft.X'],
+        Y: req.body['MouthLeft.Y']
+    }
+    game.MouthRight = {
+        X: req.body['MouthRight.X'],
+        Y: req.body['MouthRight.Y']
+    }
+    
+    if (game.MouthLeft.X > game.MouthRight.X) {
+        //Swap around
+        var left = JSON.parse(JSON.stringify(game.MouthLeft));
+        game.MouthLeft = JSON.parse(JSON.stringify(game.MouthRight));
+        game.MouthRight = left;
+    }
+    game.UserDefined = true;
 
-    //var game = new Game('', );
-    //game.UserDefined = true;
+    gameDataStore.insert(game, function(err, savedGame) {
 
-    //gameDataStore.insert(game, function(err, savedGame) {
-
-    //    res.send(savedGame);
-    //});
+        res.redirect('/' + game.UrlCode);
+    });
 
 });
 

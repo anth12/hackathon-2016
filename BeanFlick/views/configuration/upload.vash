@@ -6,7 +6,7 @@
     </div>
 
     <div class="upload-form" ng-class="{enabled: Enabled}">
-        <form method="post" , enctype="multipart/form-data" ng-submit="submit()">
+        <form method="post" enctype="multipart/form-data" action="/api/custom/create">
 
             <input type="hidden" name="MouthLeft.X" value="{{ MouthLeft.X }}" />
             <input type="hidden" name="MouthLeft.Y" value="{{ MouthLeft.Y }}" />
