@@ -25,10 +25,18 @@
                 @html.include('game/highscores')
             </div>
             <div class="custom-games column-4">
-                <div class="upload">
-                    <img src="/images/upload.png" alt="Upload your own image" />
-                    <h2>Upload your own mugshot</h2>
+                <div ng-controller="UploadController">
+
+                    <div class="upload">
+                        <img src="/images/upload.png" alt="Upload your own image" />
+                        <h2>Upload your own mugshot</h2>
+                    </div>
+
+                    <div ng-if="Enabled">
+
+                    </div>
                 </div>
+
                 <h1> Take Photo </h1>
             </div>
         </div>

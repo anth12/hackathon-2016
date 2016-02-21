@@ -53,7 +53,7 @@
     <Compile Include="public\scripts\controllers\GameController.js" />
     <Compile Include="public\scripts\controllers\HighscoreController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
-    <Compile Include="public\scripts\controllers\UpgradeController.js" />
+    <Compile Include="public\scripts\controllers\upload\UploadController.js" />
     <Compile Include="public\scripts\factories\CanvasFactory.js" />
     <Compile Include="public\scripts\factories\ImageFactory.js" />
     <Compile Include="public\scripts\factories\InteractionFactory.js" />
@@ -91,21 +91,17 @@
     <Content Include="public\min\styles\style.css" />
     <Content Include="public\modal.html" />
     <Content Include="public\static.html" />
-    <Content Include="public\styles\modules\game\_sidebar.scss" />
-    <Content Include="public\styles\modules\_configuration.scss" />
-    <Content Include="public\styles\modules\game\_game.scss" />
     <Content Include="public\styles\style.scss" />
-    <Content Include="public\styles\_grid.scss" />
     <Content Include="public\styles\_mixins.scss" />
     <Content Include="public\styles\_variables.scss" />
     <Content Include="README.md" />
     <Content Include="views\configuration\modal.vash" />
     <Content Include="views\configuration\popular.vash" />
     <Content Include="views\error.vash" />
+    <Content Include="views\canvas.vash" />
     <Content Include="views\game\highscores.vash" />
     <Content Include="views\game\scripts.vash" />
     <Content Include="views\game\sidebar.vash" />
-    <Content Include="views\game\upgrades.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
   </ItemGroup>
@@ -125,11 +121,10 @@
     <Folder Include="public\scripts\" />
     <Folder Include="public\scripts\controllers\" />
     <Folder Include="public\scripts\controllers\configuration\" />
+    <Folder Include="public\scripts\controllers\upload\" />
     <Folder Include="public\scripts\factories\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />
-    <Folder Include="public\styles\modules\" />
-    <Folder Include="public\styles\modules\game\" />
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="routes\sockets\" />

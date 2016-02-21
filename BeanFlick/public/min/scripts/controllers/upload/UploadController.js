@@ -1,1 +1,1 @@
-App.controller("UploadController",function(o,l,n,r){});
+App.controller("UploadController",function(l,o,n,r){l.Enabled=!1});
