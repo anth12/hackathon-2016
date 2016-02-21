@@ -17,4 +17,97 @@ body {
     color: $baseFont;    
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+// main content 
+.main-content {
+    background-color: $primaryColour;
+    .logo {
+        width: 200px;
+        float: left;
+    }
+    h1 {
+        float: right;
+    }
+
+    .target {
+        margin-top: 50px;
+    }
+}
+// sidebar content
+.sidebar-content {
+    background-color: $tertiaryColour;
+    .highscores {
+        thead { 
+            background-color: $altColour; 
+        }
+    }
+    .updates {
+        thead {
+            background-color: $altColour;
+        }
+    }
+    img {
+        width: 90px;
+    }
+}
+
+// footer content
+.footer {
+    height: 150px;
+    background-color: $secondaryColour;
+}
+
+// modal content
+.modal {
+    background-color: $primaryColour; 
+    color: $secondaryFont;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 75%;
+}
+
+@import "modules/game";
+
+// notification overview 
+#notifications {
+    background-color: $primaryColour;
+    font-family: Helvetica, sans-serif;
+}
+
+.notification {
+    display: table;
+    position: relative;
+    margin: 50px auto 0;
+    width: 500px;
+    transition: all 0.2s ease;
+    &.is-hidden {
+        opacity: 0;
+        height: 0;
+        font-size: 0;
+        padding: 9;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+// individual notification bg colours 
+.info {
+    background-color: #2196f3;
+}
+
+.success {
+    background-color: #4caf50;
+}
+
+.warning {
+    background-color: #ff9800;
+}
+=======
+>>>>>>> master
+>>>>>>> Stashed changes
 
