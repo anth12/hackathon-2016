@@ -39,7 +39,7 @@
 
             setInterval(function () {
                 $('#notification-' + id).remove();
-            });
+            }, timeout);
         }
     }
 

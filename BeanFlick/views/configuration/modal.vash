@@ -10,6 +10,11 @@
 
         @html.include('configuration/popular')
         
+
+        <button ng-click="testNotifiy('info')">Info</button>
+        <button ng-click="testNotifiy('warn')">Warn</button>
+        <button ng-click="testNotifiy('error')">Error</button>
+
         <div class="row">
             <div class="search column-8">
                 <h1> Search </h1>
