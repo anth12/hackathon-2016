@@ -1,4 +1,4 @@
-App.controller('ConfigurationController', function ($scope, NotificationService, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
+﻿App.controller('ConfigurationController', function ($scope, NotificationService, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
     
     $scope.startGame = function(gameId) {
 
@@ -23,6 +23,7 @@ App.controller('ConfigurationController', function ($scope, NotificationService,
     
     socket.on('update', function (response) {
         
+        odometer.innerHTML = response;
         $scope.TotalLaunches = response;
         $scope.$apply();
     });
@@ -30,7 +31,7 @@ App.controller('ConfigurationController', function ($scope, NotificationService,
     //Load the total by default
     UserGameDataService.sumLaunches().then(function(totalLaunches) {
 
-        odometer.innerHTML =  totalLaunces;
+        odometer.innerHTML = totalLaunches;
     });
 
     // Attempt to auto-start

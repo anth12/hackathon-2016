@@ -2,17 +2,19 @@
     <div class="wrapper modal">
 
         <div class="row">
-            <div class="title column-8">Pick your character</div>
+            <div class="title column-8">
+                <h2>Welcome <span>{{ currentUser.Name }}</span></h2>
+            </div>
             <div class="beans-flicked column-4">
-                <h3><span class="odometer-theme-minimal">{{ TotalLaunches | number }} Beans Flicked</span></h3>
+                <h2><span id="odometer" class="odometer odometer-theme-minimal"></span> Beans Flicked</h2>
             </div>
         </div>
 
-        <h1>Welcome <b>{{ currentUser.Name }}</b></h1>
+        <h1>Pick your character</h1>
 
         @html.include('configuration/popular')
 
-        
+
         <div class="row">
             <div class="search column-8">
                 <h2>Search</h2>
@@ -21,7 +23,7 @@
                 @html.include('game/highscores')
             </div>
             <div class="custom-games column-4">
-                
+
                 @html.include('configuration/upload')
 
             </div>

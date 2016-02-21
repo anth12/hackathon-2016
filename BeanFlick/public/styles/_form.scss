@@ -19,3 +19,23 @@ button,
     font-size: 1.4em;
     border: none;
 }
+
+input[type="file"]{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+}
+
+input[type="file"] + label{
+        font-family: 'InsaniburgerwithCheese', Helvetica, sans-serif;
+        background: $secondaryColour;
+        color: $baseFont;
+        padding: 10px 15px;
+        border-radius: 3px;
+        font-size: 1.4em;
+        border: none;
+    }
