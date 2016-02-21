@@ -123,6 +123,8 @@
             }
         }
         
+        InteractionFactory.mouthOpening = mouthY;
+
         context.beginPath();
         context.rect(GlobalSettingsFactory.mouthArea.x, GlobalSettingsFactory.mouthArea.y, mouthWidth, mouthY);
         context.fillStyle = "black";
