@@ -1,4 +1,4 @@
-﻿App.controller('ConfigurationController', function ($scope, NotificationService, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
+App.controller('ConfigurationController', function ($scope, NotificationService, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
     
     $scope.startGame = function(gameId) {
 
@@ -30,7 +30,7 @@
     //Load the total by default
     UserGameDataService.sumLaunches().then(function(totalLaunches) {
 
-        $scope.TotalLaunches = totalLaunches;
+        odometer.innerHTML =  totalLaunces;
     });
 
     // Attempt to auto-start
