@@ -1,50 +1,42 @@
-﻿<div class="column-4 sidebar-content">
-    <h1>Donald Trump</h1>
-    <table class="highscores">
-        <thead>
-            <tr>
-                <th>High Scores</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="place">1st</td>
-                <td class="user">LordFancyPants</td>
-                <td class="score">108</td>
-            </tr>
-            <tr>
-                <td class="place">2nd</td>
-                <td class="user">Jenkins</td>
-                <td class="score">78</td>
-            </tr>
-            <tr>
-                <td class="place">3rd</td>
-                <td class="user">Sherlock</td>
-                <td class="score">64</td>
-            </tr>
-        </tbody>
-    </table>
+﻿<div class="column-4 sidebar">
+  <h1>{{ CurrentGameFactory.game.Name }}</h1>
 
-    <table class="updates">
-        <thead>
-            <tr>
-                <th>Upgrades</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="upgrade1"><img src="images/submachine-gun.png" alt="upgrade"></td>
-                <td class="upgrade2"><img src="images/submachine-gun.png" alt="upgrade"></td>
-            </tr>
-            <tr>
-                <td class="upgrade3"><img src="images/submachine-gun.png" alt="upgrade"></td>
-                <td class="upgrade4"><img src="images/submachine-gun.png" alt="upgrade"></td>
-            </tr>
-            <tr>
-                <td class="upgrade5"><img src="images/submachine-gun.png" alt="upgrade"></td>
-                <td class="upgrade6"><img src="images/submachine-gun.png" alt="upgrade"></td>
-            </tr>
-        </tbody>
-    </table>
+  @html.include('game/highscores')
+
+  @html.include('game/upgrades')
+
+  <table class="updates">
+    <thead>
+      <tr>
+        <th>Upgrades</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="upgrade1">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+        <td class="upgrade2">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+      </tr>
+      <tr>
+        <td class="upgrade3">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+        <td class="upgrade4">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+      </tr>
+      <tr>
+        <td class="upgrade5">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+        <td class="upgrade6">
+          <img src="images/submachine-gun.png" alt="upgrade" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

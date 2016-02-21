@@ -1,52 +1,13 @@
 @import "variables";
 @import "mixins";
-@import "fonts/_font";
+@import "grid";
+@import "fonts/font";
 
-/*
-    Modules
-*/
+@import 'modules/configuration';
 
-@import 'modules/_configuration';
+@import "modules/game/game";
+@import "modules/game/sidebar";
 
-// grid layout 
-*, *:after, *:before {
-    margin: 0;
-    padding: 0;
-    @include border-box;
-    }
-     
-img {
-    width: auto;
-    max-width: 100%;
-    height: auto !important; 
-}   
- 
-.wrapper {
-    width: 100%;
-    margin: 0 auto;
-}
- 
-.wrapper, .row {
-    @extend %clearfix;
-}
-      
-[class*='column-'] {
-    float: left;
-    width: 100%;
-    min-height: 1px; 
-}   
- 
-@media #{$breakpoint-medium} {
-    .wrapper {      
-        width: 95%;
-        max-width: $grid-max-width;     
-        }
-    @for $i from 1 through $grid-columns {      
-        .column-#{$i} {         
-            width: 100% / $grid-columns * $i;   
-        }           
-    }   
-}
 
 // global 
 body {
@@ -54,6 +15,7 @@ body {
     color: $baseFont;    
 }
 
+<<<<<<< HEAD
 // main content 
 .main-content {
     background-color: $primaryColour;
@@ -142,40 +104,6 @@ body {
 .warning {
     background-color: #ff9800;
 }
+=======
+>>>>>>> master
 
-.error {
-    background-color: #f44336;
-}
-
-// notification design 
-.notification-icon {
-    display: table-cell;
-    vertical-align: middle;
-    width: 50px;
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(black, 0.2);
-    i {
-        width: 20px;
-        font-size: 20px;
-    }
-}
-
-.notification-body {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 30px;
-}
-
-.close-notification {
-    position: absolute;
-    background-color: rgba(black, 0.25);
-    border: none;
-    margin: 0px -28px;
-    padding: 5px 10px;
-    font-size: 10px;
-    color: $baseFont;
-    &:hover {
-        background-color: rgba(black, 0.3);
-    }
-}

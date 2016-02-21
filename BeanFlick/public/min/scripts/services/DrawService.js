@@ -5,6 +5,7 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
     var throwable;
     var launcher;
     var face;
+    var faceX;
     var mouthY;
     var mouthX;
     var mouthWidth;
@@ -15,6 +16,7 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
     this.draw = function () {
         throwable = ImageFactory.throwable;
         face = ImageFactory.face;
+        faceX = (CanvasFactory.width - face.width) / 2;
         context = CanvasFactory.canvasContext;
 
         mouthY = GlobalSettingsFactory.mouthArea.y;
@@ -27,7 +29,7 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
         context.fillStyle = "black";
         context.fill();
 
-        context.drawImage(face.image, 0, 0, face.width, face.height);
+        context.drawImage(face.image, faceX, 0, face.width, face.height);
         mouthSection = context.getImageData(mouthX, mouthY, mouthWidth, mouthHeight);
         mouthY += 1;
         context.putImageData(mouthSection, mouthX, mouthY);
@@ -35,10 +37,6 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
         startAnimation();
-    };
-
-    this.clear = function () {
-        clear();
     };
 
     this.movement = function () {
@@ -95,8 +93,23 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
     function startAnimation() {
         clear();
 
-        context.drawImage(face.image, 0, 0, face.width, face.height);
+        context.drawImage(face.image, faceX, 0, face.width, face.height);
 
+        context.beginPath();
+        context.rect(0, CanvasFactory.height - GlobalSettingsFactory.throwAreaHeight, CanvasFactory.width, GlobalSettingsFactory.throwAreaHeight);
+        context.fillStyle = "#d74680";
+        context.fill();
+
+        mouthHandler();
+
+        context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
+
+        animationLoop = window.requestAnimationFrame(function () {
+            startAnimation();
+        });
+    }
+
+    function mouthHandler() {
         if (GlobalSettingsFactory.mouthArea.y >= mouthY - 100 && GlobalSettingsFactory.mouthClosed) {
             mouthY += GlobalSettingsFactory.mouthSpeed;
         } else {
@@ -107,18 +120,14 @@ App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, Imag
             }
         }
 
+        InteractionFactory.mouthOpening = mouthY;
+
         context.beginPath();
         context.rect(GlobalSettingsFactory.mouthArea.x, GlobalSettingsFactory.mouthArea.y, mouthWidth, mouthY);
         context.fillStyle = "black";
         context.fill();
 
         context.putImageData(mouthSection, mouthX, mouthY);
-
-        context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
-
-        animationLoop = window.requestAnimationFrame(function () {
-            startAnimation();
-        });
     }
 
     function clear() {

@@ -27,6 +27,8 @@
 <script src="/scripts/controllers/HighscoreController.js"></script>
 <script src="/scripts/controllers/PageController.js"></script>
 <script src="/scripts/controllers/GameController.js"></script>
+<script src="/scripts/controllers/UpgradeController.js"></script>
+<script src="/scripts/controllers/upload/UploadController.js"></script>
 
 <script src="/scripts/controllers/configuration/ConfigurationController.js"></script>
 <script src="/scripts/controllers/configuration/PopularController.js"></script>

@@ -1,4 +1,7 @@
-App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFactory) {
+App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFactory, ImageFactory) {
+
+    var eventBufferX = [];
+    var eventBufferY = [];
 
     this.friction = function () {
         var speedY = InteractionFactory.movementData.speedY;
@@ -68,7 +71,7 @@ App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFac
     };
 
     this.scored = function () {
-        if (InteractionFactory.x > GlobalSettingsFactory.mouthArea.x && InteractionFactory.x < GlobalSettingsFactory.mouthArea.x + GlobalSettingsFactory.mouthArea.width && InteractionFactory.y < GlobalSettingsFactory.mouthArea.y + GlobalSettingsFactory.mouthArea.height) {
+        if (InteractionFactory.x > GlobalSettingsFactory.mouthArea.x && InteractionFactory.x < GlobalSettingsFactory.mouthArea.x + GlobalSettingsFactory.mouthArea.width && InteractionFactory.y < GlobalSettingsFactory.mouthArea.y + GlobalSettingsFactory.mouthArea.height && InteractionFactory.mouthOpening >= ImageFactory.throwable.height) {
             return true;
         }
     };
@@ -81,5 +84,19 @@ App.service('CalculatorService', function (InteractionFactory, GlobalSettingsFac
             width: width,
             height: image.height / divideValue
         };
+    };
+
+    this.moveBuffer = function ($event) {
+        eventBufferX.push($event.pageX);
+        eventBufferY.push($event.pageY);
+
+        if (eventBufferY.length >= 20) {
+            if (eventBufferY[0] - eventBufferY[eventBufferY.length - 1] < -20) {
+                InteractionFactory.downData.y = $event.pageY;
+                InteractionFactory.downData.time = Date.now();
+            }
+
+            if (eventBufferY.length >= 20) {}
+        }
     };
 });

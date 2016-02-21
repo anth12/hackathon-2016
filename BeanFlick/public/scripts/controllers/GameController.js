@@ -1,4 +1,4 @@
-﻿App.controller('GameController', function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory, GameService, ScoreService) {
+﻿App.controller('GameController', function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory, GameService, ScoreService, GlobalSettingsFactory) {
     
     $scope.dragAllowed = false;
     $scope.interactionAllowed = true;
@@ -24,9 +24,17 @@
     };
     
     $scope.moveInteraction = function ($event) {
+        
+
         if ($scope.dragAllowed && $scope.interactionAllowed) {
-            InteractionFactory.x = $event.pageX;
-            InteractionFactory.y = $event.pageY;
+            CalculatorService.moveBuffer($event);
+
+            if ($event.pageY < CanvasFactory.height - GlobalSettingsFactory.throwAreaHeight) {
+                $scope.upInteraction($event)
+            } else {
+                InteractionFactory.x = $event.pageX;
+                InteractionFactory.y = $event.pageY;
+            }
         }
     }
     

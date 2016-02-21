@@ -2,7 +2,7 @@
 
 
 var userGameDataStore = new Datastore({
-    filename: __dirname + '../.../App_Data/user_games.db', 
+    filename: __dirname + '../../../App_Data/user_games.db', 
     autoload: true
 });
 

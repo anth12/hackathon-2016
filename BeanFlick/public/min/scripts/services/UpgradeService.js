@@ -1,0 +1,1 @@
+App.service("UpgradeService",function(e){this.upgradeMouthSpeed=function(){e.mouthSpeed>0&&(e.mouthSpeed-=1)}});

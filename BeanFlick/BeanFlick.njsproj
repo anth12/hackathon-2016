@@ -53,6 +53,7 @@
     <Compile Include="public\scripts\controllers\GameController.js" />
     <Compile Include="public\scripts\controllers\HighscoreController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
+    <Compile Include="public\scripts\controllers\upload\UploadController.js" />
     <Compile Include="public\scripts\factories\CanvasFactory.js" />
     <Compile Include="public\scripts\factories\ImageFactory.js" />
     <Compile Include="public\scripts\factories\InteractionFactory.js" />
@@ -120,6 +121,7 @@
     <Folder Include="public\scripts\" />
     <Folder Include="public\scripts\controllers\" />
     <Folder Include="public\scripts\controllers\configuration\" />
+    <Folder Include="public\scripts\controllers\upload\" />
     <Folder Include="public\scripts\factories\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />

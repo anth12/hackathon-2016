@@ -8,7 +8,7 @@ App.factory('GlobalSettingsFactory', function () {
             height: 100
         },
 
-        mouthSpeed: 1,
+        mouthSpeed: 10,
 
         mouthClosed: false,
 
@@ -16,9 +16,11 @@ App.factory('GlobalSettingsFactory', function () {
             width: 50
         },
 
+        throwAreaHeight: 200,
+
         throwableStartPosition: {
             x: 400,
-            y: 500
+            y: 750
         },
 
         friction: 4
