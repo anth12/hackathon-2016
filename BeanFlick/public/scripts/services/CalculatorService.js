@@ -86,8 +86,8 @@
 
     }
     
-    this.sizeImage = function (image) {
-        var width = GlobalSettingsFactory.throwableSize.width;
+    this.sizeImage = function (image, width) {
+
         var divideValue = image.width / width;
         
         return {

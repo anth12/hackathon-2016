@@ -24,19 +24,28 @@ App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawS
                 var image = new Image();
                 image.src = imageData[0];
                 image.onload = function () {
-                    var resized = CalculatorService.sizeImage(image);
+                    var resizedThrowable = CalculatorService.sizeImage(image, GlobalSettingsFactory.throwableImageWidth);
+                    var resizedFace = CalculatorService.sizeImage(image, GlobalSettingsFactory.faceImageWidth);
                     
                     var type = imageData[1];
+                    
                     var height = image.height;
                     var width = image.width;
                     var centerX = width / 2;
                     var centerY = height / 2;
                     
                     if (type === "throwable") {
-                        height = resized.height;
-                        width = resized.width;
-                        centerX = width / 2;
-                        centerY = height / 2;
+                        height = resizedThrowable.height;
+                        width = resizedThrowable.width;
+                        centerX = resizedThrowable.width / 2;
+                        centerY = resizedThrowable.height / 2;
+                    }
+                    
+                    if (type === "face") {
+                        height = resizedFace.height;
+                        width = resizedFace.width;
+                        centerX = resizedFace.width / 2;
+                        centerY = resizedFace.height / 2;
                     }
                     
                     resolve({
@@ -70,7 +79,7 @@ App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawS
 
     this.positionImage = function () {
         ImageFactory.face.positionY = 0;
-        ImageFactory.face.shiftX = (CanvasFactory.width - ImageFactory.face.width / 2) / 2;
+        ImageFactory.face.shiftX = (CanvasFactory.width - ImageFactory.face.width) / 2;
 
         GlobalSettingsFactory.mouthLargestY = GlobalSettingsFactory.mouthData.mouthLeft.y > GlobalSettingsFactory.mouthData.mouthRight.y ? GlobalSettingsFactory.mouthData.mouthLeft.y : GlobalSettingsFactory.mouthData.mouthRight.y;
 

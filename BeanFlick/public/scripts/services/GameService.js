@@ -1,8 +1,11 @@
 ﻿App.service('GameService', 
-    function (ImageService, InteractionFactory, GlobalSettingsFactory, CurrentGameFactory) {
+    function (ImageService, InteractionFactory, GlobalSettingsFactory, CurrentGameFactory, CanvasFactory) {
         
     this.startGame = function () {
         
+        CanvasFactory.canvasElement.height = window.innerHeight;
+        CanvasFactory.height = window.innerHeight;
+
         GlobalSettingsFactory.mouthData.mouthLeft.x = CurrentGameFactory.game.MouthLeft.X;
         GlobalSettingsFactory.mouthData.mouthLeft.y = CurrentGameFactory.game.MouthLeft.Y;
         GlobalSettingsFactory.mouthData.mouthRight.x = CurrentGameFactory.game.MouthRight.X;

@@ -10,14 +10,14 @@
         
         mouthPositionY: 400,
         
-        mouthSpeed: 2,
+        mouthSpeed: 1,
         
         mouthClosed: false,
         
-        throwableSize: {
-            width: 50
-        },
+        throwableImageWidth: 50,
         
+        faceImageWidth: 350,
+
         throwAreaHeight: 200,
         
         throwableStartPosition: {
@@ -25,7 +25,7 @@
             y: 800
         },
         
-        friction: 4
+        friction: 2
     }
     
 })

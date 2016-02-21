@@ -15,12 +15,12 @@
     this.draw = function () {
         throwable = ImageFactory.throwable;
         face = ImageFactory.face;
-        ImageFactory.face.shiftX = (CanvasFactory.width - face.width / 2) / 2;
+        ImageFactory.face.shiftX = (CanvasFactory.width - face.width) / 2;
         context = CanvasFactory.canvasContext;
         
         mouthPolygon = document.createElement('canvas');
-        mouthPolygon.width = face.width / 2;
-        mouthPolygon.height = face.height / 2;
+        mouthPolygon.width = face.width;
+        mouthPolygon.height = face.height;
         mouthPolygonContext = mouthPolygon.getContext('2d');
 
         mouthY = 0;
@@ -90,7 +90,7 @@
         
         mouthHandler();
         
-        context.drawImage(face.image, ImageFactory.face.shiftX, face.positionY, face.width / 2, face.height / 2);
+        context.drawImage(face.image, ImageFactory.face.shiftX, face.positionY, face.width, face.height);
         drawMouthMask();
         context.drawImage(mouthPolygon, ImageFactory.face.shiftX, mouthY);
         drawThrowArea();
@@ -140,7 +140,7 @@
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         mouthPolygonContext.closePath();
         mouthPolygonContext.clip();
-        mouthPolygonContext.drawImage(face.image, 0, face.positionY, face.width / 2, face.height / 2)
+        mouthPolygonContext.drawImage(face.image, 0, face.positionY)
     }
     
     function drawMouthMask() {
