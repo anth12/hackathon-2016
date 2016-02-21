@@ -1,7 +1,8 @@
 ﻿<div class="column-8 game-area">
-    <div class="game-overlay">
-        <img src="/images/beanflicklogo.png" alt="logo" class="logo">
-        <h1>{{ CurrentGameFactory.userGame.CurrentPoints | number }} Points | {{ CurrentGameFactory.userGame.TotalLaunches | number}} Launches</h1>
+  <div class="game-overlay">
+    <img src="/images/beanflicklogo.png" alt="logo" class="logo">
+      <h1>{{ CurrentGameFactory.userGame.CurrentPoints | number }} Points | {{ CurrentGameFactory.userGame.TotalLaunches | number}} Launches</h1>
     </div>
-    <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="800" height="800"></canvas>
+  <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="900" height="900">
+  </canvas>
 </div>

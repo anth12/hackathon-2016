@@ -1,1 +1,4 @@
-App.factory("CurrentGameFactory",function(){return{}});
+App.factory('CurrentGameFactory', function () {
+
+    return {};
+});

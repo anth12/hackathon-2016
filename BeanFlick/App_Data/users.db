@@ -1,3 +1,2 @@
-{"Id":"135a5e90-167f-4772-bc92-a55ab355275d","Name":"Faint Jay","Sessions":[{"ClientId":"a59a6b34-68fb-4b5a-a0b8-7e036968ac02","IpAddress":"::1","ValidUntil":{"$$date":1456631411254}}],"_id":"96fMu6XZtR9CdXbK"}
-{"Id":"521d6e9f-9083-483a-991c-1f2f4d8f51af","Name":"Soft Cobra","Sessions":[{"ClientId":"e8cd02f1-eec1-412d-8c15-1bed72f1d023","IpAddress":"::1","ValidUntil":{"$$date":1456631411220}}],"_id":"WQWQwrcPeJyxSDJM"}
-{"Id":"c4256208-ab5c-46f2-a24c-3830f9826999","Name":"Whimsical Crocodile","Sessions":[{"ClientId":"47609739-c822-410b-8aaf-bc1e3eb194f7","IpAddress":"::1","ValidUntil":{"$$date":1456632645932}}],"_id":"xkuCbSNeuJ56Ap7A"}
+{"Id":"3a7d20ef-a2b2-4386-8fb9-8f2228f67437","Name":"Curious Lemur","Sessions":[],"_id":"alV3NEolZ98Z2Tez"}
+{"Id":"3a7d20ef-a2b2-4386-8fb9-8f2228f67437","Name":"Curious Lemur","Sessions":[{"ClientId":"96da8521-15be-4cad-a2eb-055358001fef","IpAddress":"::1","ValidUntil":{"$$date":1456674002602}}],"_id":"alV3NEolZ98Z2Tez"}

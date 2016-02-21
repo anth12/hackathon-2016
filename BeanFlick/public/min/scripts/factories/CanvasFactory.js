@@ -1,1 +1,14 @@
-App.factory("CanvasFactory",function(){var t=document.getElementById("canvas"),e=t.getContext("2d"),n=t.offsetHeight,a=t.offsetWidth;return{canvasElement:t,canvasContext:e,height:n,width:a}});
+App.factory('CanvasFactory', function () {
+
+    var canvasElement = document.getElementById('canvas');
+    var canvasContext = canvasElement.getContext("2d");
+    var height = canvasElement.offsetHeight;
+    var width = canvasElement.offsetWidth;
+
+    return {
+        canvasElement: canvasElement,
+        canvasContext: canvasContext,
+        height: height,
+        width: width
+    };
+});

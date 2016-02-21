@@ -1,9 +1,9 @@
 ﻿App.factory('GlobalSettingsFactory', function () {
     
     return {
-        mouthArea: {
-            x: 300,
-            y: 100,
+        mouthData: {
+            mouthLeft: {},
+            mouthRight: {},
             width: 200,
             height: 100
         },

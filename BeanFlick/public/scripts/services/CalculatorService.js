@@ -46,7 +46,6 @@
 
     }
     
-    
     this.movementData = function () {
         var down = InteractionFactory.downData;
         var up = InteractionFactory.upData;
