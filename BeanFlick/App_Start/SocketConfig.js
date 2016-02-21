@@ -12,7 +12,6 @@ var registerSockets = function (server) {
 
         socket.on('disconnect', function() {
 
-            console.log('disconnected');
         });
     });
 }

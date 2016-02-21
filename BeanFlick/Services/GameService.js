@@ -36,6 +36,18 @@ var gameService = {
         });
     },
     
+    getByUrl: function(urlCode) {
+      
+        return new Promise(function (resolve, reject) {
+            
+            gameDataStore.find({ UrlCode: urlCode }, function (err, docs) {
+                
+                resolve(docs[0]);
+            });
+
+        });
+    },
+    
     getOrCreateUserGame: function(sessionId, gameId) {
 
         return new Promise(function (resolve, reject) {
@@ -86,7 +98,7 @@ var gameService = {
             
             var query = gameId != null ? { GameId: gameId } : {};
             
-            gameDataStore.find(query, function (err, docs) {
+            userGameDataStore.find(query, function (err, docs) {
                 
                 var sum = 0;
                 docs.forEach(function (doc) {
@@ -105,7 +117,7 @@ var gameService = {
 
             var query = gameId != null ? { GameId: gameId } : {};
 
-            gameDataStore.find(query, function (err, docs) {
+            userGameDataStore.find(query, function (err, docs) {
 
                 var sum = 0;
                 docs.forEach(function(doc) {

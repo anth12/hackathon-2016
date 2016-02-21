@@ -12,22 +12,22 @@ router.get('/count', function (req, res) {
 });
 
 /* GET */
-router.get('/sum/launches/:gameId', function (req, res) {
+router.get('/sum/launches/:gameId?', function (req, res) {
     var gameId = req.params.gameId;
 
     gameService.sumLaunches(gameId).then(function (count) {
         
-        res.send(count);
+        res.send({ count: count });
     });
 });
 
 /* GET */
-router.get('/sum/points/:gameId', function (req, res) {
+router.get('/sum/points/:gameId?', function (req, res) {
     var gameId = req.params.gameId;
     
     gameService.sumPoints(gameId).then(function (count) {
         
-        res.send(count);
+        res.send({ count: count });
     });
 });
 
@@ -37,6 +37,16 @@ router.get('/popular', function (req, res) {
     gameService.getPopular().then(function (games) {
         
         res.send(games);
+    });
+});
+
+/* GET */
+router.get('/get/:urlCode', function (req, res) {
+    var urlCode = req.params.urlCode;
+
+    gameService.getByUrl(urlCode).then(function (game) {
+        
+        res.send(game);
     });
 });
 
