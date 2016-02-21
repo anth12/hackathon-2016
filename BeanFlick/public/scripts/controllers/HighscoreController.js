@@ -8,7 +8,7 @@
 
         if (CurrentGameFactory.game != null) {
 
-            GameDataService.getHighscores(CurrentGameFactory.game._id).then(function(data) {
+            GameDataService.getHighscores(CurrentGameFactory.game != null ? CurrentGameFactory.game._id : '').then(function(data) {
 
                 $scope.model = data;
             });

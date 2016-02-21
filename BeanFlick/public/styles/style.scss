@@ -54,6 +54,16 @@ body {
     color: $baseFont;    
 }
 
+/*
+    Fonts
+*/
+h1 span,
+h2 span,
+h3 span,
+h4 span{
+    color: $tertiaryFont;
+}
+
 // main content 
 .main-content {
     background-color: $primaryColour;

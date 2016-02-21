@@ -27,13 +27,18 @@
      */
     var socket = io('/total-points');
     
-    
     socket.on('update', function (response) {
         
         $scope.TotalLaunches = response;
         $scope.$apply();
     });
     
+    //Load the total by default
+    UserGameDataService.sumLaunches().then(function(totalLaunches) {
+
+        $scope.TotalLaunches = totalLaunches;
+    });
+
     // Attempt to auto-start
     var urlCode = location.pathname.replace(/^\//, '');
     
