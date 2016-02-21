@@ -50,7 +50,7 @@ img {
 
 // global 
 body {
-    font-family: 'InsaniburgerwithCheese';
+    font-family: 'InsaniburgerwithCheese', Helvetica, sans-serif;
     color: $baseFont;    
 }
 
@@ -106,3 +106,8 @@ body {
 }
 
 @import "modules/game";
+
+// notifications 
+#notifications {
+    background-color: $primaryColour;
+}
