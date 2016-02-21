@@ -8,7 +8,7 @@
         UserDataService.getCurrentUser().then(function (user) {
             
             $scope.currentUser = user;
-
+            $scope.CurrentGameFactory.user = user;
         });
     }
         

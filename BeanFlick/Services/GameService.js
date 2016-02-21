@@ -81,9 +81,9 @@ var gameService = {
 
             var userGame = new UserGame(userId, gameId);
 
-            userGameDataStore.insert(userGame, function(err, docs) {
+            userGameDataStore.insert(userGame, function(err, doc) {
 
-                resolve(docs[0]);
+                resolve(doc);
             });
         });
     },

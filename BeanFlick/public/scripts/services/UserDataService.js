@@ -29,7 +29,7 @@
                 $http.post('/api/user/create').then(function(response) {
 
                     userDataService.currentUser = response.data;
-
+                    
                     // Set the local sessinId
                     if (userDataService.currentUser.Sessions.length < 0) {
                         throw Error("Invalid session");
