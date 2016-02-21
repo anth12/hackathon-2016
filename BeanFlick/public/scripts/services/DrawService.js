@@ -4,7 +4,6 @@
     var throwable;
     var launcher;
     var face;
-    var faceX;
     var mouthY;
     var mouthX;
     var mouthWidth;
@@ -16,16 +15,17 @@
     this.draw = function () {
         throwable = ImageFactory.throwable;
         face = ImageFactory.face;
-        faceX = (CanvasFactory.width - face.width) / 2;
+        ImageFactory.face.shiftX = (CanvasFactory.width - face.width / 2) / 2;
         context = CanvasFactory.canvasContext;
         
         mouthPolygon = document.createElement('canvas');
-        mouthPolygon.width = face.width;
-        mouthPolygon.height = face.height;
+        mouthPolygon.width = face.width / 2;
+        mouthPolygon.height = face.height / 2;
         mouthPolygonContext = mouthPolygon.getContext('2d');
 
         mouthY = 0;
-
+        
+        drawBackground();        
         drawMouthPolygon();
         startAnimation();
     }
@@ -86,17 +86,26 @@
     function startAnimation() {
         clear();
         
+        drawBackground();
+        
         mouthHandler();
         
-        context.drawImage(face.image, 0, face.positionY, face.width, face.height);
+        context.drawImage(face.image, ImageFactory.face.shiftX, face.positionY, face.width / 2, face.height / 2);
         drawMouthMask();
-        context.drawImage(mouthPolygon, 0, mouthY);
+        context.drawImage(mouthPolygon, ImageFactory.face.shiftX, mouthY);
         drawThrowArea();
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
         window.requestAnimationFrame(function () {
             startAnimation();
         });
+    }
+    
+    function drawBackground() {
+        context.beginPath();
+        context.rect(0, 0, CanvasFactory.width, CanvasFactory.height);
+        context.fillStyle = "#17c2a4";
+        context.fill();
     }
     
     function drawThrowArea() {
@@ -107,7 +116,7 @@
     }
     
     function mouthHandler() {
-        if (0 >= mouthY - 100 && GlobalSettingsFactory.mouthClosed) {
+        if (0 >= mouthY - 50 && GlobalSettingsFactory.mouthClosed) {
             mouthY += GlobalSettingsFactory.mouthSpeed;
         } else {
             GlobalSettingsFactory.mouthClosed = false;
@@ -127,20 +136,20 @@
         mouthPolygonContext.beginPath();
         mouthPolygonContext.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x, GlobalSettingsFactory.mouthData.mouthLeft.y);
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y);
-        mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y + 100);
-        mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 100) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
+        mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y + 50);
+        mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         mouthPolygonContext.closePath();
         mouthPolygonContext.clip();
-        mouthPolygonContext.drawImage(face.image, 0, ImageFactory.face.positionY)
+        mouthPolygonContext.drawImage(face.image, 0, face.positionY, face.width / 2, face.height / 2)
     }
     
     function drawMouthMask() {
         context.beginPath();
         context.fillStyle = "black";
-        context.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x, GlobalSettingsFactory.mouthData.mouthLeft.y);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y + 90);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 90) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
+        context.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthLeft.y);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y + 50);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         context.closePath();
         context.fill();   
     }

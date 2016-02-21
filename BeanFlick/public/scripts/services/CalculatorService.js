@@ -73,8 +73,8 @@
     
     this.scored = function () {
         // TODO: check y values for higheset y
-        if (InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x 
-                && InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x
+        if (InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX
+                && InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX
                 && InteractionFactory.y < GlobalSettingsFactory.mouthData.mouthRight.y   
                 && InteractionFactory.mouthOpening  >= ImageFactory.throwable.height) {
             return true;

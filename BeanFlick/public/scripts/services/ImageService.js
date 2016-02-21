@@ -1,6 +1,6 @@
 ﻿// returns a new image to be drawn to the canvas
 
-App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawService, GlobalSettingsFactory) {
+App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawService, GlobalSettingsFactory, CanvasFactory) {
     
     var imagePaths = {
         launcherOne: "/images/launcherOne.png",
@@ -69,9 +69,14 @@ App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawS
     }
 
     this.positionImage = function () {
-        ImageFactory.face.positionY = -300;
-        GlobalSettingsFactory.mouthData.mouthLeft.y = GlobalSettingsFactory.mouthData.mouthLeft.y - 300;
-        GlobalSettingsFactory.mouthData.mouthRight.y = GlobalSettingsFactory.mouthData.mouthRight.y - 300;
+        ImageFactory.face.positionY = 0;
+        ImageFactory.face.shiftX = (CanvasFactory.width - ImageFactory.face.width / 2) / 2;
+
+        GlobalSettingsFactory.mouthData.mouthLeft.y = GlobalSettingsFactory.mouthData.mouthLeft.y / 2;
+        GlobalSettingsFactory.mouthData.mouthLeft.x = GlobalSettingsFactory.mouthData.mouthLeft.x / 2;
+
+        GlobalSettingsFactory.mouthData.mouthRight.y = GlobalSettingsFactory.mouthData.mouthRight.y / 2;
+        GlobalSettingsFactory.mouthData.mouthRight.x = GlobalSettingsFactory.mouthData.mouthRight.x / 2;
 
     }
 
