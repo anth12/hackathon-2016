@@ -3,7 +3,6 @@
     var points = 0;
     var socket = io('/points');
     
-
     socket.on('update', function (response) {
         
         CurrentGameFactory.userGame.TotalLaunches = response.TotalLaunches;
