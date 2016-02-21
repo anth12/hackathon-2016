@@ -25,7 +25,8 @@
         mouthPolygonContext = mouthPolygon.getContext('2d');
 
         mouthY = 0;
-        
+
+        drawMouthPolygon();
         startAnimation();
     }
     
@@ -87,11 +88,10 @@
         
         mouthHandler();
         
-        // Draws the clipped mouth section
-        drawMouthPolygon();
         context.drawImage(face.image, 0, 0, face.width, face.height);
-        drawMouthMask()
-        drawThrowArea()
+        drawMouthMask();
+        context.drawImage(mouthPolygon, 0, mouthY);
+        drawThrowArea();
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
         window.requestAnimationFrame(function () {
@@ -143,9 +143,7 @@
         context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y + 90);
         context.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 90) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         context.closePath();
-        context.fill();
-        
-        context.drawImage(mouthPolygon, 0, mouthY)
+        context.fill();   
     }
     
     function clear() {
