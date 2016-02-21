@@ -6,7 +6,5 @@ var userGameDataStore = new Datastore({
     autoload: true
 });
 
-//userGameDataStore.ensureIndex({ fieldName: 'UserId', unique: true });
-//userGameDataStore.ensureIndex({ fieldName: 'GameId', unique: true });
 
 module.exports = userGameDataStore;

@@ -7,6 +7,4 @@ var userDataStore = new Datastore({
     autoload: true
 });
 
-//userDataStore.ensureIndex({ fieldName: 'Id', unique: true });
-
 module.exports = userDataStore;

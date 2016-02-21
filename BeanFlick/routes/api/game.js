@@ -40,25 +40,24 @@ router.get('/popular', function (req, res) {
     });
 });
 
-/* GET */
-router.get('/:id', function (req, res) {
-    var id = req.params.id;
 
-    gameService.get(id).then(function(user) {
-        
-        res.send(user);
-    });
-});
-
-/* GET Start Game */
-router.get('/start/:sessionId/:gameId', function (req, res) {
+/* POST Start Game */
+router.post('/start/:sessionId/:gameId', function (req, res) {
     var sessionId = req.params.sessionId;
     var gameId = req.params.gameId;
     
     gameService.getOrCreateUserGame(sessionId, gameId).then(function (userGame) {
-        
-        res.send(userGame);
+
+        gameService.get(gameId).then(function (game) {
+       
+            res.send({
+                game: game,
+                userGame: userGame
+            });
+
+        });
     });
+
 });
 
 module.exports = router;

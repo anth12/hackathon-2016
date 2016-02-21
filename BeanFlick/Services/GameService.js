@@ -28,7 +28,7 @@ var gameService = {
 
         return new Promise(function (resolve, reject) {
 
-            gameDataStore.find({ Id: id }, function(err, docs) {
+            gameDataStore.find({ _id: id }, function(err, docs) {
 
                 resolve(docs[0]);
             });

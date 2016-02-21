@@ -9,7 +9,7 @@
             var sessionId = localStorage.getItem('SessionId');
             
             // Load the existing session
-            $http.get('/api/game/start/' + sessionId + '/' + gameId).then(function(response) {
+            $http.post('/api/game/start/' + sessionId + '/' + gameId).then(function(response) {
                 
                 deferred.resolve(response.data);
             });

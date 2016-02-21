@@ -1,10 +1,12 @@
-﻿App.controller('ConfigurationController', function ($scope, UserGameDataService, CurrentGameFactory) {
+﻿App.controller('ConfigurationController', function ($scope, GameDataService, UserGameDataService, CurrentGameFactory) {
     
     $scope.startGame = function(gameId) {
 
-        UserGameDataService.start(gameId).then(function(userGame) {
+        UserGameDataService.start(gameId).then(function(gameContext) {
 
-            CurrentGameFactory.currentGame = userGame;
+            CurrentGameFactory.userGame = gameContext.userGame;
+            CurrentGameFactory.game = gameContext.game;
+            
         });
     }
         

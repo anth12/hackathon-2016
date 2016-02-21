@@ -13,19 +13,8 @@
             });
 
             return deferred.promise;
-        }, /* getPopular */
+        } /* getPopular */
 
-        get: function (gameId) {
-            
-            var deferred = $q.defer();
-            
-            $http.post('/api/game/' + gameId).then(function (response) {
-                
-                deferred.resolve(response.data);
-            });
-            
-            return deferred.promise;
-        } /* get */
 
     } /* userService */
 
