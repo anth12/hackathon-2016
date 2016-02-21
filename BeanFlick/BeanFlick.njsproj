@@ -103,6 +103,7 @@
     <Content Include="public\styles\modules\game\_sidebar.scss" />
     <Content Include="public\styles\modules\configuration\_modal.scss" />
     <Content Include="public\styles\modules\_notification.scss" />
+    <Content Include="public\styles\modules\_utilities.scss" />
     <Content Include="public\styles\style.scss" />
     <Content Include="public\styles\_form.scss" />
     <Content Include="public\styles\_grid.scss" />

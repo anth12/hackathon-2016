@@ -2,8 +2,8 @@
 
     $scope.Enabled = false;
     
-    $scope.MouthLeft = { X: 165, Y: 335 };
-    $scope.MouthRight = { X: 180, Y: 335 };
+    $scope.MouthLeft = { X: 165, Y: 80 };
+    $scope.MouthRight = { X: 200, Y: 80 };
 
     $scope.toggle = function(enabled) {
         $scope.Enabled = enabled;

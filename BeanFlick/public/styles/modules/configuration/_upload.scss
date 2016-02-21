@@ -19,7 +19,8 @@
     right: 0px;
     bottom: 0px;
     background: $modalBackground;
-    padding: 20px;
+    padding: 20px;    
+    overflow: hidden;
 
     &.enabled{
         display: block;
@@ -32,6 +33,7 @@
 
 .upload-preview {
     position: relative;
+    clear:both;
 
     img {
         width: 450px;

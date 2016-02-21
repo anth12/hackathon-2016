@@ -23,15 +23,15 @@
     
     socket.on('update', function (response) {
         
-        odometer.innerHTML = response;
+        $('#odometer').html(response);
         $scope.TotalLaunches = response;
         $scope.$apply();
     });
     
     //Load the total by default
-    UserGameDataService.sumLaunches().then(function(totalLaunches) {
+    UserGameDataService.sumLaunches().then(function (totalLaunches) {
 
-        odometer.innerHTML = totalLaunches;
+        $('#odometer').html(totalLaunches);
     });
 
     // Attempt to auto-start

@@ -18,7 +18,7 @@
         <div class="row">
             <div class="search column-8">
                 <h2>Search</h2>
-                <input type="text" placeholder="Find a famous face..." />
+                <input type="text" placeholder="Find a famous face..." ng-keypress="search()"/>
 
                 @html.include('game/highscores')
             </div>

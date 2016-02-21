@@ -18,6 +18,16 @@ button,
     border-radius: 3px;
     font-size: 1.4em;
     border: none;
+    cursor: pointer;
+
+    &:hover{
+        background: lighten($primaryColour, 3);
+    }
+}
+
+.form-row{
+    padding: 10px 0;
+    clear: both;
 }
 
 input[type="file"]{
@@ -38,4 +48,11 @@ input[type="file"] + label{
         border-radius: 3px;
         font-size: 1.4em;
         border: none;
+        cursor: pointer;
+        float: left;
+        margin-right: 10px;
+
+        &:hover{
+            background: lighten($secondaryColour, 3);
+        }
     }

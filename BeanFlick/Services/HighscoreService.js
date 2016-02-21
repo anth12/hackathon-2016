@@ -25,10 +25,10 @@ var highscoreService = {
 
                 userDataStore.find(usersQuery, function(err, users) {
 
-                    users.forEach(function (user) {
+                    userGames.forEach(function (userGame) {
 
-                        var userGame = userGames.filter(function(userGame) {
-                            return userGame.UserId === user.UserId;
+                        var user = users.filter(function(usr) {
+                            return userGame.UserId === usr.UserId;
                         })[0];
 
                         highscores.push({
