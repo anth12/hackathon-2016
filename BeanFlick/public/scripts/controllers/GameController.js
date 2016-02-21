@@ -26,9 +26,6 @@
     
     $scope.moveInteraction = function ($event) {
         
-        alert($event.pageX)
-
-
         if ($scope.dragAllowed && $scope.interactionAllowed) {
             CalculatorService.moveBuffer($event);
 
