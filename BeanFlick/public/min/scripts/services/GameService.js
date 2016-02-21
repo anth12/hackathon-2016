@@ -1,1 +1,1 @@
-App.service("GameService",function(t,e,a,i,n){this.startGame=function(){var i=t.getImage("throwableOne","throwable");i.then(function(t){e[t.type]=t,a.draw(t)})},this.resetGame=function(t){i.x=n.throwableStartPosition.x,i.y=n.throwableStartPosition.y}});
+App.service("GameService",function(e,t,a,i){this.startGame=function(){e.getImages([["/images/throwableOne.png","throwable"],[i.game.BackgroundImage,"face"]])},this.resetGame=function(e){t.x=a.throwableStartPosition.x,t.y=a.throwableStartPosition.y}});

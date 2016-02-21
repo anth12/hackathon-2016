@@ -32,7 +32,6 @@ img {
       
 [class*='column-'] {
     float: left;
-    padding: 1em;
     width: 100%;
     min-height: 1px; 
 }   
@@ -106,3 +105,4 @@ body {
     height: 75%;
 }
 
+@import "modules/game";

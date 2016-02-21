@@ -23,6 +23,11 @@
         mouthWidth = GlobalSettingsFactory.mouthArea.width;
         mouthHeight = GlobalSettingsFactory.mouthArea.height;
         
+        context.beginPath();
+        context.rect(GlobalSettingsFactory.mouthArea.x, GlobalSettingsFactory.mouthArea.y, mouthWidth, mouthY);
+        context.fillStyle = "black";
+        context.fill();
+
         context.drawImage(face.image, 0, 0, face.width, face.height);
         mouthSection = context.getImageData(mouthX, mouthY, mouthWidth, mouthHeight);
         mouthY += 1;
@@ -111,6 +116,11 @@
                 mouthClosed = true;
             }
         }
+
+        context.beginPath();
+        context.rect(GlobalSettingsFactory.mouthArea.x, GlobalSettingsFactory.mouthArea.y, mouthWidth, mouthY);
+        context.fillStyle = "black";
+        context.fill();
 
         context.putImageData(mouthSection, mouthX, mouthY);
         

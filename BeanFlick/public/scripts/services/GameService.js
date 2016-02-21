@@ -1,12 +1,11 @@
 ﻿App.service('GameService', 
-    function (ImageService, ImageFactory, DrawService, InteractionFactory, GlobalSettingsFactory) {
+    function (ImageService, InteractionFactory, GlobalSettingsFactory, CurrentGameFactory) {
         
     this.startGame = function () {
-        var image = ImageService.getImage("throwableOne", "throwable");
-        image.then(function(image) {
-            ImageFactory[image.type] = image;
-            DrawService.draw(image);
-        });
+        ImageService.getImages([
+            ["/images/throwableOne.png", "throwable"],
+            [CurrentGameFactory.game.BackgroundImage, "face"]
+        ]);     
     }
 
     this.resetGame = function (points) {

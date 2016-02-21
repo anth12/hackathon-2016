@@ -7,7 +7,7 @@
 	</head>
 <body ng-controller="PageController" ng-class="{'no-scroll': CurrentGameFactory.game == null}">
 
-    <section class="wrapper main">
+    <section class="main">
         <div class="row">
             @html.block('content')
         </div>

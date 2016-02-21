@@ -14,7 +14,7 @@
         
         throwableStartPosition: {
             x: 400,
-            y: 600
+            y: 500
         },
 
         friction: 4

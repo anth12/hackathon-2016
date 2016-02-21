@@ -4,11 +4,11 @@
     $scope.interactionAllowed = true;
     
     $scope.downInteraction = function ($event) {
-        
-        if ($event.pageX < InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft 
-                && $event.pageX > InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft 
-                && $event.pageY < InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop 
-                && $event.pageY > InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop 
+
+        if ($event.pageX < InteractionFactory.x + ImageFactory.throwable.centerX
+                && $event.pageX > InteractionFactory.x - ImageFactory.throwable.centerX
+                && $event.pageY < InteractionFactory.y + ImageFactory.throwable.centerY 
+                && $event.pageY > InteractionFactory.y - ImageFactory.throwable.centerY 
                 && $scope.interactionAllowed) {
             
             $scope.dragAllowed = true;

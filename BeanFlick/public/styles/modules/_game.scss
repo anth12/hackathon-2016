@@ -1,3 +1,10 @@
 ﻿/*
     Styles used by the main Game view
 */
+
+.game-area {
+    position: relative;
+    .game-overlay {
+        position: absolute;
+    }
+}
