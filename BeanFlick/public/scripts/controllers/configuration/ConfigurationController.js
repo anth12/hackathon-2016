@@ -1,4 +1,4 @@
-﻿App.controller('ConfigurationController', function ($scope, GameDataService, UserGameDataService, CurrentGameFactory) {
+﻿App.controller('ConfigurationController', function ($scope, GameDataService, UserGameDataService, CurrentGameFactory, GameService) {
     
     $scope.startGame = function(gameId) {
 
@@ -6,6 +6,8 @@
 
             CurrentGameFactory.userGame = gameContext.userGame;
             CurrentGameFactory.game = gameContext.game;
+
+            GameService.startGame();
             
             if (history.pushState) {
 

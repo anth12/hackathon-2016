@@ -4,8 +4,6 @@
         $scope.dragAllowed = false;
         $scope.interactionAllowed = true;
         
-        GameService.startGame();
-
         $scope.downInteraction = function ($event) {
             
             if ($event.pageX < InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft 

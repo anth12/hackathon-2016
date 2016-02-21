@@ -1,6 +1,6 @@
 ﻿// returns a new image to be drawn to the canvas
 
-App.service('ImageService', ['$q', 'CalculatorService', function ($q, CalculatorService) {
+App.service('ImageService', ['$q', 'CalculatorService', 'ImageFactory', 'DrawService', function ($q, CalculatorService, ImageFactory, DrawService) {
         
         var imagePaths = {
             launcherOne: "/images/launcherOne.png",
@@ -14,29 +14,55 @@ App.service('ImageService', ['$q', 'CalculatorService', function ($q, Calculator
             throwableFour: "/images/throwableFour.png"
         }
         
-        this.getImage = function ($imageName, $type) {
-            var image = new Image();
-            var imageProperties = {};
+        this.getImages = function ($images) {
             
-            image.src = imagePaths[$imageName];
+            var promises = [];
             
-            var deferred = $q.defer();
-            
-            image.onload = function () {
-                var resized = CalculatorService.sizeImage(image);
-                
-                deferred.resolve({
-                    name: $imageName,
-                    image: image,
-                    type: $type,
-                    width: resized.width,
-                    height: resized.height,
-                    centerX: resized.width / 2,
-                    centerY: resized.height / 2
+            function loadImage(imageData) {
+                return $q(function (resolve, reject) {
+                    var image = new Image();
+                    image.src = imageData[0];
+                    image.onload = function () {
+                        var resized = CalculatorService.sizeImage(image);
+                        
+                        var type = imageData[1];
+                        var height = image.height;
+                        var width = image.width;
+                        var centerX = width / 2;
+                        var centerY = height / 2;
+
+                        if (type === "throwable") {
+                            height = resized.height;
+                            width = resized.width;
+                            centerX = width / 2;
+                            centerY = height / 2;
+                        }
+
+                        resolve({
+                            image: image,
+                            type: imageData[1],
+                            width: width,
+                            height: height,
+                            centerX: centerX,
+                            centerY: centerY
+                        })
+                    }
                 })
             }
             
-            return deferred.promise;
+            $images.forEach(function (image) {
+                promises.push(loadImage(image));
+            })
+            
+            $q.all(promises).then(function (images) {
+
+                for (var i = 0; i < images.length; i++) {
+                    var type = images[i].type;
+                    ImageFactory[type] = images[i]
+                }
+                
+                DrawService.draw()
+            })
 
         }
 

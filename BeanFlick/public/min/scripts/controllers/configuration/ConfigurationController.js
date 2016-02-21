@@ -1,1 +1,1 @@
-App.controller("ConfigurationController",function(n,t,o){n.startGame=function(n){t.start(n).then(function(n){o.currentGame=n})}});
+App.controller("ConfigurationController",function(t,e,a,n,r){t.startGame=function(t){a.start(t).then(function(t){n.userGame=t.userGame,n.game=t.game,r.startGame(),history.pushState&&history.pushState(null,null,"/"+t.game.UrlCode)})};var l=location.pathname.replace(/^\//,"");l.length>0&&/^[a-z\-]*$/.test(l)&&e.getByUrl(l).then(function(e){null!=e&&t.startGame(e._id)})});

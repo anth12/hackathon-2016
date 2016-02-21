@@ -3,9 +3,14 @@
         
         var animationLoop;
         var interval;
+        var throwable;
+        var launcher;
+        var face;
         
-        this.draw = function (image) {
-            startAnimation(image);
+        this.draw = function () {
+            throwable = ImageFactory.throwable;
+            face = ImageFactory.face;
+            startAnimation();
         }
         
         
@@ -72,7 +77,7 @@
 
         }
         
-        function startAnimation(image) {
+        function startAnimation() {
             clear();
             var mouth = GlobalSettingsFactory.mouthArea;
             var context = CanvasFactory.canvasContext;
@@ -82,11 +87,12 @@
             context.fillStyle = "red";
             context.fill();
             
-            context.drawImage(image.image, InteractionFactory.x - image.centerX, InteractionFactory.y - image.centerY, image.width, image.height);
+            context.drawImage(face.image, 0, 0, face.width, face.height);
+            context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
             
             
             animationLoop = window.requestAnimationFrame(function () {
-                startAnimation(image);
+                startAnimation();
             });
         }
         
