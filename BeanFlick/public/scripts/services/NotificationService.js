@@ -39,13 +39,16 @@ App.service('NotificationService', function () {
                                                 '<i class="' + icon + '"></i></div>' +
                                                 '<div class="notification-body"><p>' + message + '</p></div>' +
                                             '</div>');
-
-            setTimeout(function () {
+            
+            function remove() {
                 $('#notification-' + id).addClass('is-hidden');
-                setTimeout(function() {
+                setTimeout(function () {
                     $('#notification-' + id).remove();
                 }, 500);
-            }, timeout);
+            }
+
+            $('#notification-' + id).one('click', remove);
+            setTimeout(remove, timeout);
         }
     }
 

@@ -32,7 +32,24 @@
             return;
         }
 
-        NotificationService.success('Achievement: Create a game');
+        var formData = new FormData($('.upload-form form')[0]);
+        
+        $.ajax({
+            type: 'POST',
+            url: '/api/custom/create',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+
+                location.href = data.UrlCode;
+            },
+            error: function (data) {
+
+                NotificationService.error('Failed to create custom game');
+            }
+        });
     }
 
     var $elm = $('[data-id="MouthLeft"]');

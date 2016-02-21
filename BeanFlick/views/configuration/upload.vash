@@ -6,23 +6,33 @@
     </div>
 
     <div class="upload-form" ng-class="{enabled: Enabled}">
-        <a class="close" ng-click="toggle(false)">
-            Back
-        </a>
+        <form method="post" , enctype="multipart/form-data" ng-submit="submit()">
 
-        <h1>Create you personalized game and <span>share with Friends</span></h1>
-        <div>
-            <input type="text" ng-model="Name" placeholder="Name" /> <button ng-click="submit()">Create Game</button>
-        </div>
-        <div>
-            <input type="file" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(event)">
-        </div>
-        <div class="upload-preview">
-            <img src="{{ Image }}"/>
-            <div class="overlay"></div>
-            <span class="marker" data-id="MouthLeft" ng-style="{'display: none': Image == null}"></span>
-            <span class="marker" data-id="MouthRight" ng-style="{'display: none': Image == null}"></span>
-        </div>
+            <input type="hidden" name="MouthLeft.X" value="{{ MouthLeft.X }}" />
+            <input type="hidden" name="MouthLeft.Y" value="{{ MouthLeft.Y }}" />
 
+            <input type="hidden" name="MouthRight.X" value="{{ MouthRight.X }}" />
+            <input type="hidden" name="MouthRight.Y" value="{{ MouthRight.Y }}" />
+
+            <a class="close" ng-click="toggle(false)">
+                Back
+            </a>
+
+            <h1>Create you personalized game and <span>share with Friends</span></h1>
+            <div>
+                <input type="text" name="Name" ng-model="Name" placeholder="Name" />
+                <button class="btn">Create Game</button>
+            </div>
+            <div>
+                <input type="file" name="Image" accept="image/*" onchange="angular.element(this).scope().fileNameChanged(event)">
+            </div>
+            <div class="upload-preview">
+                <img src="{{ Image }}" />
+                <div class="overlay"></div>
+                <span class="marker" data-id="MouthLeft" ng-style="{'display: none': Image == null}"></span>
+                <span class="marker" data-id="MouthRight" ng-style="{'display: none': Image == null}"></span>
+            </div>
+
+        </form>
     </div>
 </div>
