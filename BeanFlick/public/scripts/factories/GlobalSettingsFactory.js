@@ -8,6 +8,8 @@
             height: 100
         },
         
+        mouthPositionY: 400,
+        
         mouthSpeed: 10,
         
         mouthClosed: false,
@@ -20,7 +22,7 @@
         
         throwableStartPosition: {
             x: 400,
-            y: 750
+            y: 800
         },
         
         friction: 4

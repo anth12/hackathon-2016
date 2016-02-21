@@ -12,7 +12,8 @@
         ImageService.getImages([
             ["/images/throwableOne.png", "throwable"],
             [CurrentGameFactory.game.BackgroundImage, "face"]
-        ]);     
+        ]);
+
     }
 
     this.resetGame = function (points) {

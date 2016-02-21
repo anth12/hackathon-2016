@@ -1,0 +1,1 @@
+App.controller("ConfigurationController",function(o,n){});

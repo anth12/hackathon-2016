@@ -88,14 +88,13 @@
         
         mouthHandler();
         
-        context.drawImage(face.image, 0, 0, face.width, face.height);
+        context.drawImage(face.image, 0, face.positionY, face.width, face.height);
         drawMouthMask();
         context.drawImage(mouthPolygon, 0, mouthY);
         drawThrowArea();
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
         window.requestAnimationFrame(function () {
-            console.log('logging')
             startAnimation();
         });
     }
@@ -132,7 +131,7 @@
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 100) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         mouthPolygonContext.closePath();
         mouthPolygonContext.clip();
-        mouthPolygonContext.drawImage(face.image, 0, 0)
+        mouthPolygonContext.drawImage(face.image, 0, ImageFactory.face.positionY)
     }
     
     function drawMouthMask() {

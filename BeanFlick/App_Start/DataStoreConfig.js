@@ -26,7 +26,7 @@ var dataStoreConfig = function (app) {
         var david = new Game('david-cameron', 'David Cameron', '/media/david-cameron.jpg');
         david.PreviewImage = '/media/preview/david-cameron.jpg';
         david.MouthLeft = { X: 337, Y: 665 };
-        david.MouthRight = { X: 670, Y: 470 };
+        david.MouthRight = { X: 470, Y: 670 };
         gameDataStore.insert(david);
         
         var ed = new Game('ed-miliband', 'Ed Miliband', '/media/ed-miliband.jpg');

@@ -72,12 +72,14 @@
     }
     
     this.scored = function () {
-        if (InteractionFactory.x > GlobalSettingsFactory.mouthArea.x 
-                && InteractionFactory.x < GlobalSettingsFactory.mouthArea.x + GlobalSettingsFactory.mouthArea.width 
-                && InteractionFactory.y < GlobalSettingsFactory.mouthArea.y + GlobalSettingsFactory.mouthArea.height
+        // TODO: check y values for higheset y
+        if (InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x 
+                && InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x
+                && InteractionFactory.y < GlobalSettingsFactory.mouthData.mouthRight.y   
                 && InteractionFactory.mouthOpening  >= ImageFactory.throwable.height) {
             return true;
         }
+
     }
     
     this.sizeImage = function (image) {
