@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-App.controller("ConfigurationController",function(t,e,n,a,o,s){t.testNotifiy=function(t){e._show(t,"Sample notification message")},t.startGame=function(t){a.start(t).then(function(t){o.userGame=t.userGame,o.game=t.game,s.startGame(),history.pushState&&history.pushState(null,null,"/"+t.game.UrlCode)})},a.sumLaunches().then(function(e){t.TotalLaunches=e});var i=location.pathname.replace(/^\//,"");i.length>0&&/^[a-z\-]*$/.test(i)&&n.getByUrl(i).then(function(e){null!=e&&t.startGame(e._id)})});
-=======
-App.controller("ConfigurationController",function(t,n,a,e,o,i){t.testNotifiy=function(t){n._show(t,"Sample notification message")},t.startGame=function(t){e.start(t).then(function(t){o.userGame=t.userGame,o.game=t.game,i.startGame(),history.pushState&&history.pushState(null,null,"/"+t.game.UrlCode)})};var l=io("/total-points");l.on("update",function(n){t.TotalLaunches=n,t.$apply()}),e.sumLaunches().then(function(n){t.TotalLaunches=n});var s=location.pathname.replace(/^\//,"");s.length>0&&/^[a-z\-]*$/.test(s)&&a.getByUrl(s).then(function(n){null!=n&&t.startGame(n._id)})});
->>>>>>> master

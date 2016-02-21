@@ -1,1 +1,0 @@
-App.controller("UploadController",function(l,o,n,r){l.Enabled=!1});

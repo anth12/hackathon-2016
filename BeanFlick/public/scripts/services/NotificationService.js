@@ -5,7 +5,7 @@ App.service('NotificationService', function () {
         
         info: function(message) {
             
-            notificationService._show('info', 'fa fa-info' message, timeout);
+            notificationService._show('info', 'fa fa-info', message, timeout);
         },
         success: function (message) {
             
@@ -17,7 +17,7 @@ App.service('NotificationService', function () {
         },
         error: function (message) {
 
-            notificationService._show('error', 'fa fa-exclamation' message, timeout);
+            notificationService._show('error', 'fa fa-exclamation', message, timeout);
         },
 
         _show: function(type, icon, message, timeout) {
