@@ -10,7 +10,7 @@
         
         mouthPositionY: 400,
         
-        mouthSpeed: 10,
+        mouthSpeed: 2,
         
         mouthClosed: false,
         
