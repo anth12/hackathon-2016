@@ -3,7 +3,7 @@
         
         var animationLoop;
         var interval;
-
+        
         this.draw = function (image) {
             startAnimation(image);
         }
@@ -17,39 +17,57 @@
             
             var deferred = $q.defer();
             var powerSetting = GlobalSettingsFactory.powerSetting;
-
+            
             interval = setInterval(function () {
                 
+                var scored = CalculatorService.scored();
+                
+                if (scored) {
+                    clearInterval(interval);
+                    deferred.resolve({
+                        stop: true,
+                        scored: true
+                    });
+                }
                 
                 var needToStop = CalculatorService.friction();
                 
                 if (needToStop) {
                     clearInterval(interval);
-                    deferred.resolve(true);
-                } else {
-                    
-                    if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 
+                    deferred.resolve({
+                        stop: true,
+                        scored: false
+                    });
+                }
+                
+                if (InteractionFactory.y - ImageFactory.throwable.centerY + CanvasFactory.offsetTop > 0 
                         && InteractionFactory.y + ImageFactory.throwable.centerY + CanvasFactory.offsetTop < CanvasFactory.offsetTop + CanvasFactory.height) {
-                        
-                        InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
-                    } else {
-                        clearInterval(interval);
-                        deferred.resolve(true);
-                    }
                     
-                    if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 
+                    InteractionFactory.y -= InteractionFactory.movementData.speedY / 300;
+                } else {
+                    clearInterval(interval);
+                    deferred.resolve({
+                        stop: true,
+                        scored: false
+                    });
+                }
+                
+                if (InteractionFactory.x - ImageFactory.throwable.centerX + CanvasFactory.offsetLeft > 0 
                         && InteractionFactory.x + ImageFactory.throwable.centerX + CanvasFactory.offsetLeft < CanvasFactory.offsetLeft + CanvasFactory.width) {
-
-                        InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
-                    } else {
-                        clearInterval(interval);
-                        deferred.resolve(true);
-                    }
-
+                    
+                    InteractionFactory.x += InteractionFactory.movementData.speedX / 300;
+                } else {
+                    clearInterval(interval);
+                    deferred.resolve({
+                        stop: true,
+                        scored: false
+                    });
                 }
 
-            })
+                
 
+            })
+            
             return deferred.promise;
 
         }
@@ -63,10 +81,10 @@
             context.rect(mouth.x, mouth.y, mouth.width, mouth.height);
             context.fillStyle = "red";
             context.fill();
-
+            
             context.drawImage(image.image, InteractionFactory.x - image.centerX, InteractionFactory.y - image.centerY, image.width, image.height);
-                       
-
+            
+            
             animationLoop = window.requestAnimationFrame(function () {
                 startAnimation(image);
             });

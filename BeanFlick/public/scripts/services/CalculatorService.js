@@ -69,6 +69,14 @@
             }
         }
         
+        this.scored = function () {
+            if (InteractionFactory.x > GlobalSettingsFactory.mouthArea.x 
+                && InteractionFactory.x < GlobalSettingsFactory.mouthArea.x + GlobalSettingsFactory.mouthArea.width
+                && InteractionFactory.y < GlobalSettingsFactory.mouthArea.y + GlobalSettingsFactory.mouthArea.height) {
+                return true;
+            }
+        }
+        
         this.sizeImage = function (image) {
             var width = GlobalSettingsFactory.throwableSize.width;
             var divideValue = image.width / width;

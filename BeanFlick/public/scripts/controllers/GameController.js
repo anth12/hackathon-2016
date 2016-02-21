@@ -1,5 +1,5 @@
-﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', 'CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GameService',
-    function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory, GameService) {
+﻿App.controller('GameController', ['$scope', 'ImageService', 'CalculatorService', 'DrawService', 'CanvasFactory', 'InteractionFactory', 'ImageFactory', 'GameService', 'ScoreService',
+    function ($scope, ImageService, CalculatorService, DrawService, CanvasFactory, InteractionFactory, ImageFactory, GameService, ScoreService) {
         
         $scope.dragAllowed = false;
         $scope.interactionAllowed = true;
@@ -46,7 +46,15 @@
                 
                 InteractionFactory.movementData = CalculatorService.movementData();
                 
-                DrawService.movement().then(function () {
+                DrawService.movement().then(function (promise) {
+                    if (promise.scored) {
+                        ScoreService.scored();
+                    }
+                    
+                    if (!promise.scored) {
+                        ScoreService.notScored();
+                    }
+                    
                     $scope.interactionAllowed = true;
                 })
             }

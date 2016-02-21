@@ -1,0 +1,1 @@
+App.service("ScoreService",["GameService",function(e){var c=0;this.scored=function(){c++,e.resetGame(c)},this.notScored=function(){c=0,e.resetGame(c)}}]);

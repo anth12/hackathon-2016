@@ -1,4 +1,5 @@
-﻿App.service('GameService', ['ImageService', 'ImageFactory', 'DrawService', function (ImageService, ImageFactory, DrawService) {
+﻿App.service('GameService', ['ImageService', 'ImageFactory', 'DrawService', 'InteractionFactory', 'GlobalSettingsFactory',
+    function (ImageService, ImageFactory, DrawService, InteractionFactory, GlobalSettingsFactory) {
         
         this.startGame = function () {
             var image = ImageService.getImage("throwableOne", "throwable");
@@ -8,8 +9,10 @@
             })
         }
 
-        this.restartGame = function () {
-
+        this.resetGame = function (points) {
+            InteractionFactory.x = GlobalSettingsFactory.throwableStartPosition.x;
+            InteractionFactory.y = GlobalSettingsFactory.throwableStartPosition.y;
+            console.log(points)
         }
 
     }]);
