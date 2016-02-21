@@ -1,1 +1,0 @@
-App.controller("UpgradeController",function(e,o){e.upgradeMouthSpeed=function(){o.mouthSpeed>1&&(o.mouthSpeed-=1)}});
