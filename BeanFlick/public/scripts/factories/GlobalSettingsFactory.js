@@ -21,7 +21,7 @@
         throwAreaHeight: 200,
         
         throwableStartPosition: {
-            x: 400,
+            x: 450,
             y: 800
         },
         

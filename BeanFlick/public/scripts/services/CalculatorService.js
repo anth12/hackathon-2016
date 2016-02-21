@@ -9,8 +9,12 @@
         var friction = GlobalSettingsFactory.friction;
         var needToStopY = false;
         var needToStopX = false;
-        
-        if (speedY > 0) {
+
+        if (GlobalSettingsFactory.mouthLargestY > InteractionFactory.y) {
+            return true;
+        }
+
+        if (speedY >= 0) {
             if (speedY - friction > 0) {
                 InteractionFactory.movementData.speedY -= friction;
             } else {
@@ -18,7 +22,7 @@
             }
         }
         
-        if (speedY < 0) {
+        if (speedY <= 0) {
             if (speedY + friction < 0) {
                 InteractionFactory.movementData.speedY += friction;
             } else {
@@ -26,7 +30,7 @@
             }
         }
         
-        if (speedX > 0) {
+        if (speedX >= 0) {
             if (speedX - friction > 0) {
                 InteractionFactory.movementData.speedX -= friction;
             } else {
@@ -34,7 +38,7 @@
             }
         }
         
-        if (speedX < 0) {
+        if (speedX <= 0) {
             if (speedX + friction < 0) {
                 InteractionFactory.movementData.speedX += friction;
             } else {
@@ -75,7 +79,7 @@
         // TODO: check y values for higheset y
         if (InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX
                 && InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX
-                && InteractionFactory.y < GlobalSettingsFactory.mouthData.mouthRight.y   
+                && InteractionFactory.y < GlobalSettingsFactory.mouthLargestY 
                 && InteractionFactory.mouthOpening  >= ImageFactory.throwable.height) {
             return true;
         }
