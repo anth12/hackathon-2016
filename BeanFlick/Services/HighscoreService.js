@@ -15,7 +15,8 @@ var highscoreService = {
             var query = gameId != null ? { GameId: gameId } : {};
             var highscores = [];
             
-            userGameDataStore.find(query).sort({ TotalPoints: -1, TotalLaunches: -1}).limit(3).exec(function (err, userGames) {
+            userGameDataStore.find(query).sort({ HighestPoints: -1, TotalLaunches: -1 })
+                                                    .limit(3).exec(function (err, userGames) {
 
                 var usersQuery = { '$or': [] };
                 userGames.forEach(function (userGame) {

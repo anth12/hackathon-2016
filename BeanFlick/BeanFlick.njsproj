@@ -35,6 +35,10 @@
     <Compile Include="App_Start\DataStoreConfig.js" />
     <Compile Include="App_Start\RouteConfig.js" />
     <Compile Include="App_Start\SocketConfig.js" />
+    <Compile Include="Domain\Game.js" />
+    <Compile Include="Domain\User.js" />
+    <Compile Include="Domain\UserGame.js" />
+    <Compile Include="Domain\UserSession.js" />
     <Compile Include="gulpfile.js" />
     <Compile Include="public\min\scripts\App.js" />
     <Compile Include="public\min\scripts\controllers\GameController.js" />
@@ -47,6 +51,7 @@
     <Compile Include="public\scripts\controllers\configuration\ConfigurationController.js" />
     <Compile Include="public\scripts\controllers\configuration\PopularController.js" />
     <Compile Include="public\scripts\controllers\GameController.js" />
+    <Compile Include="public\scripts\controllers\HighscoreController.js" />
     <Compile Include="public\scripts\controllers\PageController.js" />
     <Compile Include="public\scripts\factories\CanvasFactory.js" />
     <Compile Include="public\scripts\factories\ImageFactory.js" />
@@ -61,11 +66,15 @@
     <Compile Include="public\scripts\services\ScoreService.js" />
     <Compile Include="public\scripts\services\UserDataService.js" />
     <Compile Include="public\scripts\services\UserGameDataService.js" />
+    <Compile Include="public\scripts\services\UserService.js" />
     <Compile Include="public\test.js" />
-    <Compile Include="routes\api\game.js" />
-    <Compile Include="routes\api\user.js" />
+    <Compile Include="routes\api\Highscore.js" />
+    <Compile Include="routes\api\Game.js" />
+    <Compile Include="routes\api\User.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="bin\www" />
+    <Compile Include="routes\sockets\PointsSocket.js" />
+    <Compile Include="routes\users.js" />
     <Compile Include="Services\DataAccess..\GameDataStore - Copy.js" />
     <Compile Include="Services\DataAccess..\GameDataStore.js" />
     <Compile Include="Services\DataAccess..\UserDataStore.js" />
@@ -73,6 +82,8 @@
     <Compile Include="Services\DataAccess\GameDataStore.js" />
     <Compile Include="Services\DataAccess\UserDataStore.js" />
     <Compile Include="Services\DataAccess\UserGameDataStore.js" />
+    <Compile Include="Services\UserGameService.js" />
+    <Compile Include="Services\HighscoreService.js" />
     <Compile Include="Services\GameService.js" />
     <Compile Include="Services\UserService.js" />
     <Content Include="package.json" />
@@ -88,13 +99,16 @@
     <Content Include="views\configuration\popular.vash" />
     <Content Include="views\error.vash" />
     <Content Include="views\canvas.vash" />
+    <Content Include="views\game\highscores.vash" />
     <Content Include="views\game\scripts.vash" />
+    <Content Include="views\game\sidebar.vash" />
     <Content Include="views\index.vash" />
     <Content Include="views\layout.vash" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
     <Folder Include="bin\" />
+    <Folder Include="Domain\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\min\" />
@@ -112,6 +126,7 @@
     <Folder Include="public\styles\" />
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
+    <Folder Include="routes\sockets\" />
     <Folder Include="Services\" />
     <Folder Include="Services\DataAccess..\" />
     <Folder Include="Services\DataAccess\" />

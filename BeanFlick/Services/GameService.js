@@ -102,7 +102,7 @@ var gameService = {
                 
                 var sum = 0;
                 docs.forEach(function (doc) {
-                    sum += doc.TotalLaunches;
+                    sum += doc.TotalPoints;
                 });
                 
                 resolve(sum);
