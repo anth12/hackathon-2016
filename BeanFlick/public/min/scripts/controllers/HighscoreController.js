@@ -1,0 +1,1 @@
+App.controller("HighscoreController",function(e,t,o){e.currentGameFactory=o;var r=-1;e.update=function(){clearTimeout(r),null!=o.game&&t.getHighscores(o.game._id).then(function(t){e.model=t}),e.timerId=setTimeout(e.update,1e4)},e.$watch("currentGameFactory",function(){e.update()})});

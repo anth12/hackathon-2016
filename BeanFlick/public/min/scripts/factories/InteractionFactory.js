@@ -1,1 +1,1 @@
-App.factory("InteractionFactory",["GlobalSettingsFactory",function(t){var o=t.throwableStartPosition.x,r=t.throwableStartPosition.y;return{x:o,y:r}}]);
+App.factory("InteractionFactory",function(t){var o=t.throwableStartPosition.x,r=t.throwableStartPosition.y;return{x:o,y:r}});

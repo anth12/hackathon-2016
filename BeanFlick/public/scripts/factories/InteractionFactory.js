@@ -1,12 +1,12 @@
-﻿App.factory('InteractionFactory', ['GlobalSettingsFactory', function (GlobalSettingsFactory) {
-        
-        var x = GlobalSettingsFactory.throwableStartPosition.x;
-        var y = GlobalSettingsFactory.throwableStartPosition.y;
-        
-
+﻿App.factory('InteractionFactory', function (GlobalSettingsFactory) {
+    
+    var x = GlobalSettingsFactory.throwableStartPosition.x;
+    var y = GlobalSettingsFactory.throwableStartPosition.y;
+    
+    
     return {
         x: x,
         y: y
     };
     
-}])
+})
