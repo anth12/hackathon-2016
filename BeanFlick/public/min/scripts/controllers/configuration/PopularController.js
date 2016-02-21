@@ -1,0 +1,1 @@
+App.controller("PopularController",function(o,l){l.getPopular().then(function(l){o.popularGames=l})});
