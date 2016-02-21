@@ -69,6 +69,7 @@
     <Compile Include="public\scripts\services\UserDataService.js" />
     <Compile Include="public\scripts\services\UserGameDataService.js" />
     <Compile Include="public\test.js" />
+    <Compile Include="routes\api\Custom.js" />
     <Compile Include="routes\api\Highscore.js" />
     <Compile Include="routes\api\Game.js" />
     <Compile Include="routes\api\User.js" />

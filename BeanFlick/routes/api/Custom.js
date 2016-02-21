@@ -1,5 +1,6 @@
 ﻿var express = require('express');
 var fs = require('fs');
+var path = require('path');
 var router = express.Router();
 var Game = require('../../Domain/Game');
 var gameDataStore = require('../../Services/DataAccess/GameDataStore');
@@ -8,23 +9,23 @@ var gameDataStore = require('../../Services/DataAccess/GameDataStore');
 /* POST Create Game */
 router.post('/create', function (req, res) {
 
-    var sessionId = req.params.sessionId;
+    //var sessionId = req.params.sessionId;
     
-    fs.readFile(req.files.Image.path, function (err, data) {
+    //fs.readFile(req.files.Image.path, function (err, data) {
         
-        var newPath = __dirname + "/media/public/";
-        fs.writeFile(newPath, data, function (err) {
-            res.redirect("back");
-        });
-    });
+    //    var newPath = path.join(__dirname + "../../media/public/");
+    //    fs.writeFile(newPath, data, function (err) {
+    //        res.redirect("back");
+    //    });
+    //});
 
-    var game = new Game('', );
-    game.UserDefined = true;
+    //var game = new Game('', );
+    //game.UserDefined = true;
 
-    gameDataStore.insert(game, function(err, savedGame) {
+    //gameDataStore.insert(game, function(err, savedGame) {
 
-        res.send(savedGame);
-    });
+    //    res.send(savedGame);
+    //});
 
 });
 
