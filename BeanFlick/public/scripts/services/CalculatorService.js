@@ -1,16 +1,17 @@
-﻿App.service('CalculatorService', ['InteractionFactory', 'GlobalSettingsService', function (InteractionFactory, GlobalSettingsService) {
+﻿App.service('CalculatorService', ['InteractionFactory', 'GlobalSettingsFactory', function (InteractionFactory, GlobalSettingsFactory) {
         
         this.friction = function () {
             var speedY = InteractionFactory.movementData.speedY;
             var speedX = InteractionFactory.movementData.speedX;
-            var friction = GlobalSettingsService.globalSettings().friction;
-            var needToStop = false;
+            var friction = GlobalSettingsFactory.friction;
+            var needToStopY = false;
+            var needToStopX = false;
             
             if (speedY > 0) {
                 if (speedY - friction > 0) {
                     InteractionFactory.movementData.speedY -= friction;
                 } else {
-                    needToStop = true;
+                    needToStopY = true;
                 }
             }
             
@@ -18,7 +19,7 @@
                 if (speedY + friction < 0) {
                     InteractionFactory.movementData.speedY += friction;
                 } else {
-                    needToStop = true;
+                    needToStopY = true;
                 }
             }
             
@@ -26,18 +27,19 @@
                 if (speedX - friction > 0) {
                     InteractionFactory.movementData.speedX -= friction;
                 } else {
-                    needToStop = true;
+                    needToStopX = true;
                 }
             }
+            
             if (speedX < 0) {
                 if (speedX + friction < 0) {
                     InteractionFactory.movementData.speedX += friction;
                 } else {
-                    needToStop = true;
+                    needToStopX = true;
                 }
             }
             
-            return needToStop;
+            return needToStopY && needToStopX;
 
         }
         
@@ -64,6 +66,16 @@
                 speedXY: (Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))) / lengthS,
                 raidanDirection: Math.atan2(dy, -dx),
                 degreeDirection: Math.atan2(dy, -dx) * 180 / Math.PI
+            }
+        }
+        
+        this.sizeImage = function (image) {
+            var width = GlobalSettingsFactory.throwableSize.width;
+            var divideValue = image.width / width;
+            
+            return {
+                width: width,
+                height: image.height / divideValue
             }
         }
 

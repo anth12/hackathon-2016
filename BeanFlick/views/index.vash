@@ -8,7 +8,7 @@
 
         </div>
 
-        <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="1000" height="1000" style="border: 1px solid black;"></canvas>
+        <canvas id="canvas" ng-controller="GameController" ng-mousedown="downInteraction($event)" ng-mouseup="upInteraction($event)" ng-mousemove="moveInteraction($event)" width="1000" height="700" style="border: 1px solid black;"></canvas>
 
     })
 

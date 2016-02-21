@@ -34,7 +34,7 @@
         }
         
         $scope.upInteraction = function ($event) {
-            if ($scope.interactionAllowed) {
+            if ($scope.interactionAllowed && $scope.dragAllowed) {
                 $scope.dragAllowed = false;
                 $scope.interactionAllowed = false;
                 
