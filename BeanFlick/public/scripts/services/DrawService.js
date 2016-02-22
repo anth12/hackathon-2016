@@ -92,7 +92,7 @@
         
         context.drawImage(face.image, ImageFactory.face.shiftX, face.positionY, face.width, face.height);
         drawMouthMask();
-        context.drawImage(mouthPolygon, ImageFactory.face.shiftX, mouthY);
+        context.drawImage(mouthPolygon, ImageFactory.face.shiftX, mouthY + face.positionY);
         drawThrowArea();
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
@@ -153,10 +153,10 @@
 
         context.beginPath();
         context.fillStyle = "black";
-        context.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthLeft.y);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y + 50);
-        context.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
+        context.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthLeft.y + face.positionY);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y + face.positionY);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthRight.y + 50 + face.positionY);
+        context.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50 + face.positionY) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         context.closePath();
         context.fill();   
     }
