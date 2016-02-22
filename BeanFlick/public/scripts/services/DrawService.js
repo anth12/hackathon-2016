@@ -132,7 +132,6 @@
     }
     
     function drawMouthPolygon() {
-        mouthPolygonContext.clearRect(0, 0, context.width, context.height);
         mouthPolygonContext.beginPath();
         mouthPolygonContext.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x, GlobalSettingsFactory.mouthData.mouthLeft.y);
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthRight.x, GlobalSettingsFactory.mouthData.mouthRight.y);
@@ -140,10 +139,11 @@
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         mouthPolygonContext.closePath();
         mouthPolygonContext.clip();
-        mouthPolygonContext.drawImage(face.image, 0, face.positionY)
+        mouthPolygonContext.drawImage(face.image, 0, face.positionY, face.width, face.height)
     }
     
     function drawMouthMask() {
+
         context.beginPath();
         context.fillStyle = "black";
         context.moveTo(GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX, GlobalSettingsFactory.mouthData.mouthLeft.y);

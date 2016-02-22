@@ -6,10 +6,10 @@
         CanvasFactory.canvasElement.height = window.innerHeight;
         CanvasFactory.height = window.innerHeight;
 
-        GlobalSettingsFactory.mouthData.mouthLeft.x = CurrentGameFactory.game.MouthLeft.X;
-        GlobalSettingsFactory.mouthData.mouthLeft.y = CurrentGameFactory.game.MouthLeft.Y;
-        GlobalSettingsFactory.mouthData.mouthRight.x = CurrentGameFactory.game.MouthRight.X;
-        GlobalSettingsFactory.mouthData.mouthRight.y = CurrentGameFactory.game.MouthRight.Y;
+        GlobalSettingsFactory.mouthData.mouthLeft.x = parseFloat(CurrentGameFactory.game.MouthLeft.X);
+        GlobalSettingsFactory.mouthData.mouthLeft.y = parseFloat(CurrentGameFactory.game.MouthLeft.Y);
+        GlobalSettingsFactory.mouthData.mouthRight.x = parseFloat(CurrentGameFactory.game.MouthRight.X);
+        GlobalSettingsFactory.mouthData.mouthRight.y = parseFloat(CurrentGameFactory.game.MouthRight.Y);
         
 
         ImageService.getImages([

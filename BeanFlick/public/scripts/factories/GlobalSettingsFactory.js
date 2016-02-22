@@ -1,10 +1,11 @@
-﻿App.factory('GlobalSettingsFactory', function () {
+﻿App.factory('GlobalSettingsFactory', function (CanvasFactory) {
     
+    var throwableStartPositionY = window.innerHeight - 50;
+
     return {
         mouthData: {
             mouthLeft: {},
             mouthRight: {},
-            width: 200,
             height: 100
         },
         
@@ -16,13 +17,13 @@
         
         throwableImageWidth: 50,
         
-        faceImageWidth: 350,
+        faceImageWidth: 450,
 
         throwAreaHeight: 200,
         
         throwableStartPosition: {
             x: 450,
-            y: 800
+            y: throwableStartPositionY
         },
         
         friction: 2
