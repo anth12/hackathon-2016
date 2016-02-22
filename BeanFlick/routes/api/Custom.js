@@ -54,4 +54,11 @@ router.post('/create', upload.array('Image'), function (req, res) {
 
 });
 
+router.use(function(err, req, res, next) {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+
+        return res.redirect('/?error=fileSize');
+    }
+});
+
 module.exports = router;

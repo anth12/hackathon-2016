@@ -15,7 +15,15 @@
             }
         });
     }
-    
+
+    var shownSearchNotification = false;
+    $scope.search = function() {
+
+        if (shownSearchNotification)
+            return;
+
+        NotificationService.warning('Sorry, the search is not yet available');
+    }
     /**
      * Live update
      */
@@ -47,5 +55,15 @@
                 $scope.startGame(game._id);
             }
         });
-    }   
+    }
+
+    /*
+     * Handle Errors redirected to the home page
+     */
+    switch (location.search.replace('?error=', '')) {
+        case 'fileSize':
+            NotificationService.error('File uploads are limited to 2.5mb');
+        break;
+        default:
+    }
 });

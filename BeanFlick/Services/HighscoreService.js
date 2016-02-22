@@ -20,7 +20,7 @@ var highscoreService = {
 
                 var usersQuery = { '$or': [] };
                 userGames.forEach(function (userGame) {
-                    usersQuery['$or'].push({ UserId: userGame.UserId });
+                    usersQuery['$or'].push({ Id: userGame.UserId });
                 });
 
                 userDataStore.find(usersQuery, function(err, users) {
@@ -28,7 +28,7 @@ var highscoreService = {
                     userGames.forEach(function (userGame) {
 
                         var user = users.filter(function(usr) {
-                            return userGame.UserId === usr.UserId;
+                            return userGame.UserId === usr.Id;
                         })[0];
 
                         highscores.push({

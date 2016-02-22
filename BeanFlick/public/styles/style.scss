@@ -3,7 +3,7 @@
 @import "grid";
 @import "form";
 @import "modules/utilities";
-@import "fonts/font";
+@import "font";
 
 @import 'modules/configuration/modal';
 @import 'modules/configuration/upload';
@@ -18,6 +18,6 @@
 
 // global 
 body {
-    font-family: 'InsaniburgerwithCheese', Helvetica, sans-serif;
+    font-family: 'Roboto Slab', serif;
     color: $baseFont;    
 }

@@ -17,8 +17,9 @@
         $scope.timerId = setTimeout($scope.update, 10 * 1000);
     }
     
-    $scope.$watch('currentGameFactory', function () {
-
+    $scope.$watch('currentGameFactory.game', function () {
+        
         $scope.update();
     });
+
 });

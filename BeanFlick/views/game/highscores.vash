@@ -1,14 +1,14 @@
 ﻿<table class="highscores" ng-controller="HighscoreController">
     <thead>
         <tr>
-            <th>High Scores</th>
+            <th colspan="3"><h3>High Scores</h3></th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="highscore in model">
             <td class="place">{{ $index+1}}st</td>
             <td class="user">{{ highscore.user.Name }}</td>
-            <td class="score">{{ highscore.userGame.Name }}</td>
+            <td class="score">{{ highscore.userGame.HighestPoints }}</td>
         </tr>
     </tbody>
 </table>

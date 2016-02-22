@@ -7,8 +7,19 @@
     .game-overlay {
         position: absolute;
         width: 100%;
+        left: 20px;
     }
     .logo {
         width: 200px;
     }
+
+    canvas{
+        float:left;
+    }
+}
+
+.menu-button{
+    position: fixed;
+    right: 20px;
+    top: 20px;
 }

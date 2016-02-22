@@ -2,8 +2,14 @@
 <html lang="en" ng-app="BeanFlick">
 	<head>
 		<meta charset="utf-8">
-		<title>@model.title | Bean Flick</title>
+		<title>Bean Flick</title>
+        <meta name="description" content="Bean Flick is a acumulative game where users 'flick' projectiles at faces" />
+        <meta name="keywords" content="bean flick, game, bean, flick, throw, launch, projectile, acumulative" />
+        <meta name="author" content="teamforge #hackathon" />
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto|Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/min/styles/style.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-touch-icon-60x60.png">

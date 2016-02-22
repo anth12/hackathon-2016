@@ -1,1 +1,1 @@
-App.factory("GlobalSettingsFactory",function(){return{mouthData:{mouthLeft:{},mouthRight:{},width:200,height:100},mouthPositionY:400,mouthSpeed:2,mouthClosed:!1,throwableSize:{width:50},throwAreaHeight:200,throwableStartPosition:{x:450,y:800},friction:4}});
+App.factory("GlobalSettingsFactory",function(t){var o=window.innerHeight-50;return{mouthData:{mouthLeft:{},mouthRight:{},height:100},mouthPositionY:400,mouthSpeed:1,mouthClosed:!1,throwableImageWidth:50,faceImageWidth:450,throwAreaHeight:200,throwableStartPosition:{x:450,y:o},friction:2}});

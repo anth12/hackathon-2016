@@ -4,14 +4,47 @@
 
 .sidebar {
     background-color: $tertiaryColour;
+
     .highscores {
-        thead { 
+        width: 100%;
+        border-collapse:collapse;
+
+        thead tr{ 
+            color: $baseFont;
             background-color: $altColour; 
+            
+            th{
+                padding: 7px;
+            }
+        }
+        tr{
+            color: $altFont2;
+            background-color: #ffdd99;
+
+            &:nth-of-type(even){
+                background-color: #e5c689;
+            }
+        }
+        td{
+            padding: 5px 10px;
+            font-weight: 700;
+            font-size: 1.3em;
         }
     }
     .updates {
+        width: 100%;
+
         thead {
-            background-color: $altColour;
+            color: $baseFont;
+            background-color: $altColour; 
+
+            th{
+                padding: 7px;
+            }
+        }
+
+        td{
+            text-align: center;
         }
     }
     img {
