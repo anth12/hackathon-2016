@@ -84,7 +84,7 @@ App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawS
         ImageFactory.face.positionY = 0;
         
         if (CanvasFactory.height - GlobalSettingsFactory.throwAreaHeight > GlobalSettingsFactory.mouthLargestY) {
-            ImageFactory.face.positionY = -GlobalSettingsFactory.mouthLargestY + 100;
+            ImageFactory.face.positionY = -GlobalSettingsFactory.mouthLargestY + 200;
         }
 
         
