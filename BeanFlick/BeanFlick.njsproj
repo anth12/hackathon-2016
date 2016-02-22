@@ -96,6 +96,9 @@
     <Content Include="public\min\styles\style.css" />
     <Content Include="public\modal.html" />
     <Content Include="public\static.html" />
+    <Content Include="public\styles\fonts\_font.scss" />
+    <Content Include="public\styles\modules\_configuration.scss" />
+    <Content Include="public\styles\modules\_odometer.scss" />
     <Content Include="public\styles\_font.scss" />
     <Content Include="public\styles\modules\configuration\_search.scss" />
     <Content Include="public\styles\modules\configuration\_upload.scss" />
@@ -142,6 +145,7 @@
     <Folder Include="public\scripts\factories\" />
     <Folder Include="public\scripts\services\" />
     <Folder Include="public\styles\" />
+    <Folder Include="public\styles\fonts\" />
     <Folder Include="public\styles\modules\" />
     <Folder Include="public\styles\modules\game\" />
     <Folder Include="public\styles\modules\configuration\" />

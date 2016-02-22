@@ -13,26 +13,26 @@ var dataStoreConfig = function (app) {
          */
         var boris = new Game('boris-johnson', 'Boris Johnson', '/media/boris-johnson.png');
         boris.PreviewImage = '/media/preview/boris-johnson.jpg';
-        boris.MouthLeft = { X: 164, Y: 279 };
-        boris.MouthRight = { X: 218, Y: 279 };
+        boris.MouthLeft = { "X": "135", "Y": "457" };
+        boris.MouthRight = { "X": "252", "Y": "458" };
         gameDataStore.insert(boris);
 
         var donald = new Game('donald-trump', 'Donald Trump', '/media/donald-trump.png');
         donald.PreviewImage = '/media/preview/donald-trump.jpg';
-        donald.MouthLeft = { X: 168, Y: 225 };
-        donald.MouthRight = { X: 238, Y: 225 };
+        donald.MouthLeft = { "X": "131", "Y": "389" };
+        donald.MouthRight = { "X": "266", "Y": "379" };
         gameDataStore.insert(donald);
 
         var david = new Game('david-cameron', 'David Cameron', '/media/david-cameron.png');
         david.PreviewImage = '/media/preview/david-cameron.jpg';
-        david.MouthLeft = { X: 179, Y: 334 };
-        david.MouthRight = { X: 233, Y: 334 };
+        david.MouthLeft = { "X": "153", "Y": "504" };
+        david.MouthRight = { "X": "276", "Y": "511" };
         gameDataStore.insert(david);
 
         var ed = new Game('ed-miliband', 'Ed Miliband', '/media/ed-miliband.png');
         ed.PreviewImage = '/media/preview/ed-miliband.jpg';
-        ed.MouthLeft = { X: 176, Y: 335 };
-        ed.MouthRight = { X: 249, Y: 333 };
+        ed.MouthLeft = { "X": "144", "Y": "488" };
+        ed.MouthRight = { "X": "277", "Y": "488" };
         gameDataStore.insert(ed);
         
 
