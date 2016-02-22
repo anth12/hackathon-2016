@@ -13,9 +13,6 @@
         <i class="fa fa-home fa-3"></i>
       </a>
     </h2>
-    <h2 class="inline-block large cursor-pointer">
-      <i class="fa fa-bars fa-4"></i>
-    </h2>
   </div>
 
   @html.include('game/highscores')
