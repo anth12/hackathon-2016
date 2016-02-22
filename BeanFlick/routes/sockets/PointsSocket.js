@@ -1,5 +1,6 @@
 ﻿var userGameService = require('../../Services/UserGameService');
 var gameService = require('../../Services/GameService');
+var achievementService = require('../../Services/AchievementService');
 
 var pointsSocket = function (server) {
 
@@ -21,6 +22,14 @@ var pointsSocket = function (server) {
                 gameService.sumLaunches().then(function(count) {
                     
                     io.of('/total-points').emit('update', count);
+                });
+
+                achievementService.checkForAchievements(userGame.UserId, function(achievements) {
+
+                    if (achievements != null) {
+                        socket.emit('achievement', achievements);
+                    }
+
                 });
             });
 

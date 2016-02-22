@@ -2,9 +2,6 @@
 
     @html.block('content', function(model){
         
-        <span ng-click="CurrentGameFactory.game = null" class="menu-button">
-            <i class="fa fa-bars fa-3"></i>
-        </span>
 
         <div ng-if="CurrentGameFactory.game == null">
 

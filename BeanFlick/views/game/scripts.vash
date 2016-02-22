@@ -15,6 +15,7 @@
 <script src="/scripts/services/DrawService.js"></script>
 <script src="/scripts/services/GameService.js"></script>
 <script src="/scripts/services/ScoreService.js"></script>
+<script src="/scripts/services/AchievementService.js"></script>
 <script src="/scripts/services/NotificationService.js"></script>
 
 <script src="/scripts/factories/CanvasFactory.js"></script>

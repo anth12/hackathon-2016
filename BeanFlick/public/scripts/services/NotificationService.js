@@ -7,6 +7,10 @@ App.service('NotificationService', function () {
             
             notificationService._show('info', 'fa fa-info', message, timeout);
         },
+        achievement: function (message, description) {
+            
+            notificationService._show('success', 'fa fa-trophy', message, null, description);
+        },
         success: function (message, timeout) {
             
             notificationService._show('success', 'fa fa-trophy', message, timeout);
@@ -20,7 +24,7 @@ App.service('NotificationService', function () {
             notificationService._show('error', 'fa fa-exclamation', message, timeout);
         },
 
-        _show: function(type, icon, message, timeout) {
+        _show: function(type, icon, message, timeout, description) {
             timeout = timeout || 5000;
 
             var $container = $('.notification-wrapper');
@@ -35,9 +39,13 @@ App.service('NotificationService', function () {
 
             $container.prepend('<div class="notification ' + type + '" id="notification-' + id + '"></div>');
 
+            var body = description != null 
+                ? '<div class="notification-body"><h3>' + message + '</h3><p>' + description + '</p></div>' 
+                : '<div class="notification-body"><p>' + message + '</p></div>';
+
             $('#notification-' + id).html('<div class="notification-icon">' +
                                                 '<i class="' + icon + '"></i></div>' +
-                                                '<div class="notification-body"><p>' + message + '</p></div>' +
+                                                 body +
                                             '</div>');
             
             function remove() {

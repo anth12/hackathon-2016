@@ -1,4 +1,4 @@
-﻿App.service('ScoreService', function (GameService, CurrentGameFactory) {
+﻿App.service('ScoreService', function (GameService, CurrentGameFactory, AchievementService) {
         
     var points = 0;
     var socket = io('/points');
@@ -11,6 +11,9 @@
         CurrentGameFactory.userGame.CurrentPoints = response.CurrentPoints;
         
     });
+
+    //TODO move sockets connection into service
+    socket.on('achievement', AchievementService.render); 
 
     this.scored = function () {
         points++;
