@@ -39,7 +39,7 @@ router.post('/create', upload.array('Image'), function (req, res) {
         Y: req.body['MouthRight.Y']
     }
     
-    if (game.MouthLeft.X > game.MouthRight.X) {
+    if (parseFloat(game.MouthLeft.X) > parseFloat(game.MouthRight.X)) {
         //Swap around
         var left = JSON.parse(JSON.stringify(game.MouthLeft));
         game.MouthLeft = JSON.parse(JSON.stringify(game.MouthRight));

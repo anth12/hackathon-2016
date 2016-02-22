@@ -1,4 +1,5 @@
-﻿var userGameDataStore = require('./DataAccess/UserGameDataStore');
+﻿var userDataStore = require('./DataAccess/UserDataStore');
+var userGameDataStore = require('./DataAccess/UserGameDataStore');
 var userService = require('./UserService');
 
 var achievementService = {
@@ -63,7 +64,7 @@ var achievementService = {
                         return;
 
                     // Add the Achievement to the profile
-                    userGameDataStore.update({ Id: userId }, { '$push': { Achievements: achievement.key } }, function (err, doc) {
+                    userDataStore.update({ Id: userId }, { '$push': { Achievements: achievement.key } }, function (err, doc) {
                         
                         callback({ name: achievement.name, description: achievement.description });
                     });
@@ -120,6 +121,18 @@ var achievementService = {
                 return userGames.length >= 2 && userGames.filter(function (game) {
                     return game.CurrentPoints >= 5;
                 }) >= 2;
+            }
+        },
+
+        // custom game user
+        {
+            key: 'custom-games',
+            name: 'Welcome to the club', 
+            description: 'Join a custom game', 
+            check: function (user, userGames) {
+                return userGames.some(function (game) {
+                    return game.UserDefined;
+                });
             }
         }
 
