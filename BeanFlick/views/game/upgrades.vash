@@ -1,3 +1,3 @@
 ﻿<div ng-controller="UpgradeController">
-<p ng-click="upgradeMouthSpeed()">MOUTH SPEED</p>
+<!--<p ng-click="upgradeMouthSpeed()">MOUTH SPEED</p>-->
 </div>

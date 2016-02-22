@@ -1,4 +1,4 @@
-﻿App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, ImageFactory, GlobalSettingsFactory, CalculatorService) {
+﻿App.service('DrawService', function ($q, CanvasFactory, InteractionFactory, ImageFactory, GlobalSettingsFactory, CalculatorService, CurrentGameFactory) {
     
     var interval;
     var throwable;
@@ -96,7 +96,7 @@
         drawThrowArea();
         context.drawImage(throwable.image, InteractionFactory.x - throwable.centerX, InteractionFactory.y - throwable.centerY, throwable.width, throwable.height);
 
-        window.requestAnimationFrame(function () {
+        CurrentGameFactory.animation = window.requestAnimationFrame(function () {
             startAnimation();
         });
     }
@@ -146,7 +146,7 @@
         mouthPolygonContext.lineTo(GlobalSettingsFactory.mouthData.mouthLeft.x, (GlobalSettingsFactory.mouthData.mouthLeft.y + 50) - (GlobalSettingsFactory.mouthData.mouthLeft.y - GlobalSettingsFactory.mouthData.mouthRight.y));
         mouthPolygonContext.closePath();
         mouthPolygonContext.clip();
-        mouthPolygonContext.drawImage(face.image, 0, face.positionY, face.width, face.height)
+        mouthPolygonContext.drawImage(face.image, 0, 0, face.width, face.height)
     }
     
     function drawMouthMask() {

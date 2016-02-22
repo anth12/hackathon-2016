@@ -1,6 +1,22 @@
 ﻿<div class="column-4 sidebar">
-  <h1 class="padding"><i class="fa fa-gamepad"></i> {{ CurrentGameFactory.game.Name }}</h1>
-  <h2 class="padding"><i class="fa fa-user"></i> {{ currentUser.Name }}</h2>
+  <div class="width-1-2">
+    <h1 class="padding">
+      <i class="fa fa-gamepad"></i> {{ CurrentGameFactory.game.Name }}
+    </h1>
+    <h2 class="padding">
+      <i class="fa fa-user"></i> {{ currentUser.Name }}
+    </h2>
+  </div>
+  <div class="width-1-2 text-align-right padding margin-top">
+    <h2 class="inline-block large cursor-pointer button">
+      <a href="/">
+        <i class="fa fa-home fa-3"></i>
+      </a>
+    </h2>
+    <h2 class="inline-block large cursor-pointer">
+      <i class="fa fa-bars fa-4"></i>
+    </h2>
+  </div>
 
   @html.include('game/highscores')
 
@@ -9,32 +25,34 @@
   <table class="updates">
     <thead>
       <tr>
-        <th colspan="2"><h3>Upgrades</h3></th>
+        <th colspan="2">
+          <h3>Upgrades</h3>
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="upgrade1">
-            <img src="/images/upgrades/1.jpg" alt="upgrade" />
+          <img src="/images/upgrades/1.jpg" alt="upgrade" />
         </td>
         <td class="upgrade2">
-            <img src="/images/upgrades/2.jpg" alt="upgrade" />
+          <img src="/images/upgrades/2.jpg" alt="upgrade" />
         </td>
       </tr>
       <tr>
         <td class="upgrade3">
-            <img src="/images/upgrades/3.jpg" alt="upgrade" />
+          <img src="/images/upgrades/3.jpg" alt="upgrade" />
         </td>
         <td class="upgrade4">
-            <img src="/images/upgrades/4.jpg" alt="upgrade" />
+          <img src="/images/upgrades/4.jpg" alt="upgrade" />
         </td>
       </tr>
       <tr>
         <td class="upgrade5">
-            <img src="/images/upgrades/5.jpg" alt="upgrade" />
+          <img src="/images/upgrades/5.jpg" alt="upgrade" />
         </td>
         <td class="upgrade6">
-            <img src="/images/upgrades/6.jpg" alt="upgrade" />
+          <img src="/images/upgrades/6.jpg" alt="upgrade" />
         </td>
       </tr>
     </tbody>

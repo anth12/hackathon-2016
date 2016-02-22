@@ -28,7 +28,7 @@
 
     this.notScored = function () {
         points = 0;
-        
+
         socket.emit('interaction', {
             _id: CurrentGameFactory.userGame._id,
             action: 'miss'

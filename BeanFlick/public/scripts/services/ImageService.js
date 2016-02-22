@@ -79,7 +79,9 @@ App.service('ImageService', function ($q, CalculatorService, ImageFactory, DrawS
 
     this.positionImage = function () {
         GlobalSettingsFactory.mouthLargestY = GlobalSettingsFactory.mouthData.mouthLeft.y > GlobalSettingsFactory.mouthData.mouthRight.y ? GlobalSettingsFactory.mouthData.mouthLeft.y : GlobalSettingsFactory.mouthData.mouthRight.y;
+        GlobalSettingsFactory.mouthSmallestY = GlobalSettingsFactory.mouthData.mouthLeft.y < GlobalSettingsFactory.mouthData.mouthRight.y ? GlobalSettingsFactory.mouthData.mouthLeft.y : GlobalSettingsFactory.mouthData.mouthRight.y;
         ImageFactory.face.shiftX = (CanvasFactory.width - ImageFactory.face.width) / 2;
+        ImageFactory.face.positionY = 0;
         
         if (CanvasFactory.height - GlobalSettingsFactory.throwAreaHeight > GlobalSettingsFactory.mouthLargestY) {
             ImageFactory.face.positionY = -GlobalSettingsFactory.mouthLargestY + 100;

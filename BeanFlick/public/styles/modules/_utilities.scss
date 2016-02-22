@@ -5,3 +5,36 @@
 .padding{
     padding: 15px;
 }
+
+.width-1-2 {
+    float: left;
+    width: 50%;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+h2.large {
+    font-size: 40px;
+}
+
+.inline-block + .inline-block {
+    margin-left: 20px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.button a {
+    color: #fff;
+}

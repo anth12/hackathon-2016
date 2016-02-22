@@ -10,7 +10,7 @@
         var needToStopY = false;
         var needToStopX = false;
 
-        if (GlobalSettingsFactory.mouthLargestY > InteractionFactory.y) {
+        if (GlobalSettingsFactory.mouthLargestY + ImageFactory.face.positionY > InteractionFactory.y) {
             return true;
         }
 
@@ -77,9 +77,15 @@
     
     this.scored = function () {
         // TODO: check y values for higheset y
+        var a = InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX;
+        var b = InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX;
+        var c = InteractionFactory.y < GlobalSettingsFactory.mouthSmallestY + ImageFactory.face.positionY + 50;
+        var d = InteractionFactory.mouthOpening >= ImageFactory.throwable.height;
+        
+
         if (InteractionFactory.x > GlobalSettingsFactory.mouthData.mouthLeft.x + ImageFactory.face.shiftX
                 && InteractionFactory.x < GlobalSettingsFactory.mouthData.mouthRight.x + ImageFactory.face.shiftX
-                && InteractionFactory.y < GlobalSettingsFactory.mouthLargestY 
+                && InteractionFactory.y < GlobalSettingsFactory.mouthSmallestY + ImageFactory.face.positionY + 50
                 && InteractionFactory.mouthOpening  >= ImageFactory.throwable.height) {
             return true;
         }
