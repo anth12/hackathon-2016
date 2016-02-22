@@ -109,10 +109,17 @@
     }
     
     function drawThrowArea() {
+        var text = "Flick Your Bean";
         context.beginPath();
         context.rect(0, CanvasFactory.height - GlobalSettingsFactory.throwAreaHeight, CanvasFactory.width, GlobalSettingsFactory.throwAreaHeight);
         context.fillStyle = "#d74680";
         context.fill();
+
+        context.beginPath();
+        context.font = "70px Arial";
+        context.fillStyle = "#db6190";
+        context.fillText(text, (CanvasFactory.width / 2 - context.measureText(text).width / 2), CanvasFactory.height - (GlobalSettingsFactory.throwAreaHeight / 2))
+
     }
     
     function mouthHandler() {
