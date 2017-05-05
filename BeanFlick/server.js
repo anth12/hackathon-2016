@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-var debug = require('debug')('BeanFlick');
 var app = require('./App_Start/ApplicationStart');
 
 app.set('port', 80);
 
 var server = app.listen(app.get('port'), function () {
     console.log('Env: ' + app.get('env'));
-    debug('Express server listening on port ' + server.address().port);
 });
 
 require('../App_Start/SocketConfig')(server);
